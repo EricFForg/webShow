@@ -1,0 +1,67 @@
+{
+  "wood": {
+    "label": "苏宁 榻榻米实木硬床板",
+    "platform": "苏宁易购",
+    "url": "https://www.suning.com/item/0070574635/11800991897.html",
+    "imagePath": "images/mattress-types/wood.jpg",
+    "imageUrl": "https://imgservice.suning.cn/uimg1/b2c/image/uQQtt1p9dDp48xOUuBSuQg.jpg"
+  },
+  "palm": {
+    "label": "大自然 梦享 山棕床垫",
+    "platform": "苏宁易购",
+    "url": "https://product.suning.com/0000000000/10638974479.html",
+    "imagePath": "images/mattress-types/palm.jpg",
+    "imageUrl": "https://imgservice.suning.cn/uimg1/b2c/image/Vyh76IgC1LIPulxOf6dJYw.jpg"
+  },
+  "spring": {
+    "label": "喜临门 白骑士 独袋弹簧",
+    "platform": "京东商城",
+    "url": "https://item.jd.com/10151577970695.html",
+    "imagePath": "images/mattress-types/spring.jpg",
+    "imageUrl": "https://img10.360buyimg.com/n1/s720x720_jfs/t1/425683/40/11031/135020/69f02465F74a6c384/008332032056e050.jpg",
+    "sku": "10151577970695"
+  },
+  "mesh3d": {
+    "label": "慕思 3D 透气床垫 尚品",
+    "platform": "苏宁易购",
+    "url": "https://product.suning.com/0070207987/11940170360.html",
+    "imagePath": "images/mattress-types/mesh3d.jpg",
+    "imageUrl": "https://imgservice.suning.cn/uimg1/b2c/image/dVn-uXxUN9hnVBfITqYscQ.jpg"
+  },
+  "air": {
+    "label": "京东京造 充气床垫",
+    "platform": "京东商城",
+    "url": "https://item.jd.com/100206921705.html",
+    "imagePath": "images/mattress-types/air.jpg",
+    "imageUrl": "https://img10.360buyimg.com/n1/s720x720_jfs/t1/406037/8/9873/117770/69bd3541Fafa1c6a7/008332032032bc06.jpg",
+    "sku": "100206921705"
+  },
+  "memory": {
+    "label": "梦百合 朗怡 零压记忆棉床垫",
+    "platform": "苏宁易购",
+    "url": "https://product.suning.com/0000000000/12236178454.html",
+    "imageUrl": "https://imgservice.suning.cn/uimg1/b2c/image/JQBXjmtKmU819l81POuFiQ.jpg",
+    "imagePath": "images/mattress-types/memory.jpg"
+  },
+  "latex": {
+    "label": "梦甜湾 天然乳胶床垫",
+    "platform": "苏宁易购",
+    "url": "https://product.suning.com/0071301316/12242542095.html",
+    "imagePath": "images/mattress-types/latex.jpg",
+    "imageUrl": "https://imgservice.suning.cn/uimg1/b2c/image/Cd9k60nxBvgVcMop6MWwgw.jpg"
+  },
+  "hybrid": {
+    "label": "喜临门 白骑士 弹簧+乳胶+黄麻",
+    "platform": "苏宁易购",
+    "url": "https://product.suning.com/0010360980/12444553608.html",
+    "imagePath": "images/mattress-types/hybrid.jpg",
+    "imageUrl": "https://imgservice.suning.cn/uimg1/b2c/image/hgS4hZMp_WjuOT7O2Ov2Mw.jpg"
+  },
+  "ai": {
+    "label": "喜临门 白骑士 7区深睡弹簧+乳胶（智能床垫代表）",
+    "platform": "苏宁易购",
+    "url": "https://m.suning.com/brand/052E-457543-0.html",
+    "imagePath": "images/mattress-types/ai.jpg",
+    "imageUrl": "https://imgservice.suning.cn/uimg1/b2c/image/tGWQ8GnCzN_cm8ScSatPPA.jpg"
+  }
+}
