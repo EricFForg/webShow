@@ -83,12 +83,32 @@ body {
 
 .site-heading {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.85rem;
+  max-width: 70%;
+}
+
+.site-heading-text {
+  display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
   gap: 0.15rem;
-  max-width: 60%;
   text-align: right;
+  min-width: 0;
+}
+
+.site-avatar {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .site-title {
@@ -3209,7 +3229,13 @@ body.lightbox-open {
   }
 
   .site-heading {
-    max-width: 62%;
+    max-width: 72%;
+    gap: 0.6rem;
+  }
+
+  .site-avatar {
+    width: 48px;
+    height: 48px;
   }
 
   .site-title {
