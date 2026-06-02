@@ -1760,6 +1760,21 @@ body {
   color: var(--text);
 }
 
+.product-feature-highlight {
+  font-size: 0.8rem;
+  line-height: 1.65;
+  margin: 0.75rem 0 0;
+  padding: 0.65rem 0.75rem;
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  color: var(--text-muted);
+}
+
+.product-feature-highlight strong {
+  color: var(--accent-dark);
+}
+
 .product-feature-outputs {
   display: flex;
   flex-wrap: wrap;
@@ -2830,8 +2845,22 @@ body.matrix-modal-open {
 }
 
 .gallery-carousel-section {
+  padding-bottom: 0;
   overflow: hidden;
   border-radius: 0;
+}
+
+.sample-showcase-section .sample-showcase-intro {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0;
+  padding: 0 1.5rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sample-showcase-section .sample-showcase-intro + .gallery-carousel {
+  margin-top: 0;
 }
 
 .gallery-carousel-track .gallery-panel {

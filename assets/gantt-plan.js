@@ -35,7 +35,7 @@ window.GANTT_PLAN = {
         { role: "项目经理", name: "1 人", duty: "进度协调、评审组织与打样跟进" },
       ],
       subtasks: [
-        { name: "薄垫八层结构方案定稿", owner: "结构组", schedule: "6/1 – 6/20" },
+        { name: "薄垫结构方案定稿", owner: "结构组", schedule: "6/1 – 6/20" },
         { name: "气囊分区与气路原理图", owner: "结构组", schedule: "6/10 – 6/28" },
         { name: "TPU 气囊材料与厚度选型", owner: "工艺组", schedule: "6/15 – 7/5" },
         { name: "多路气阀驱动电路设计", owner: "硬件组", schedule: "6/20 – 7/15" },

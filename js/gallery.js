@@ -268,6 +268,8 @@ function initNavSpy() {
   sections.forEach((section) => observer.observe(section));
 }
 
+window.initNavSpy = initNavSpy;
+
 function initAudienceZoom() {
   document.querySelectorAll(".audience-card-media").forEach((wrap) => {
     const img = wrap.querySelector("img");
