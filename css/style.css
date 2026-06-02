@@ -15,7 +15,6 @@
 
   --header-height: 96px;
   --sidebar-width: 220px;
-  --content-max: 1080px;
   --bg: var(--neutral-light);
   --surface: #ffffff;
   --border: #e0e3dc;
@@ -269,11 +268,12 @@ body {
 
 .main-content {
   flex: 1;
+  width: calc(100% - var(--sidebar-width));
   margin-left: var(--sidebar-width);
   padding: 2rem 1.5rem 3rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   gap: 2rem;
   min-width: 0;
 }
@@ -281,7 +281,7 @@ body {
 .content-card,
 .gallery-panel {
   width: 100%;
-  max-width: var(--content-max);
+  max-width: none;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -2129,7 +2129,6 @@ body.matrix-modal-open {
 /* Gallery carousel */
 #gallery-section {
   width: 100%;
-  max-width: var(--content-max);
 }
 
 .gallery-carousel-section {
@@ -2511,6 +2510,7 @@ body.lightbox-open {
   }
 
   .main-content {
+    width: 100%;
     margin-left: 0;
     padding: 1.25rem 1rem 2rem;
   }
