@@ -603,6 +603,64 @@ body {
   border-left: 3px solid var(--accent);
 }
 
+.audience-conclusion {
+  margin-top: 0.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.audience-conclusion h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.65rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--accent);
+}
+
+.audience-highlight {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin: 0;
+  padding: 0.85rem 1rem;
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  color: var(--accent-dark);
+}
+
+.audience-highlight strong {
+  font-weight: 600;
+  color: var(--accent-dark);
+}
+
+.audience-question {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  margin: 0.85rem 0 0;
+  padding: 0.85rem 1rem;
+  background: #fafbf9;
+  border: 1px dashed var(--accent);
+  border-radius: 8px;
+  color: var(--text-muted);
+}
+
+.audience-question-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fff;
+  background: var(--accent);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  margin-right: 0.45rem;
+  vertical-align: middle;
+}
+
+.audience-question strong {
+  color: var(--text);
+}
+
 /* Pain points section */
 .painpoints-body {
   padding: 1.5rem;
@@ -775,6 +833,213 @@ body {
   line-height: 1.75;
   color: var(--text-muted);
   margin-bottom: 0.65rem;
+}
+
+/* Sleep evidence / experimental data */
+.sleep-evidence-body {
+  padding: 1.5rem;
+}
+
+.sleep-evidence-intro {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.sleep-evidence-intro strong {
+  color: var(--text);
+}
+
+.sleep-evidence-block {
+  margin-bottom: 1.35rem;
+}
+
+.sleep-evidence-block h2,
+.sleep-evidence-caveat h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.65rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--accent);
+}
+
+.sleep-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+  margin-top: 0.85rem;
+}
+
+.sleep-metric-card {
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+}
+
+.sleep-metric-value {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+  margin-bottom: 0.35rem;
+  line-height: 1.35;
+}
+
+.sleep-metric-card h3 {
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+  color: var(--text);
+}
+
+.sleep-metric-card p {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.sleep-evidence-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-top: 0.85rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.sleep-evidence-table-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.sleep-evidence-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.sleep-evidence-table th,
+.sleep-evidence-table td {
+  padding: 0.7rem 0.85rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.55;
+}
+
+.sleep-evidence-table th {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text);
+  background: #f6f7f5;
+  white-space: nowrap;
+}
+
+.sleep-evidence-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.sleep-evidence-table tbody tr:nth-child(even) td {
+  background: #fafbf9;
+}
+
+.evidence-cell-note {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+  font-weight: 400;
+}
+
+.evidence-level {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.evidence-level-a {
+  color: #1e5128;
+  background: #e8f3eb;
+  border: 1px solid rgba(30, 81, 40, 0.2);
+}
+
+.evidence-level-b {
+  color: #1e40af;
+  background: #eff6ff;
+  border: 1px solid rgba(30, 64, 175, 0.15);
+}
+
+.evidence-level-c {
+  color: var(--text-muted);
+  background: #f3f4f2;
+  border: 1px solid var(--border);
+}
+
+.sleep-dimension-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+  margin-top: 0.85rem;
+}
+
+.sleep-dimension-item {
+  background: #fafbf9;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+}
+
+.sleep-dimension-item h3 {
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+  color: var(--text);
+}
+
+.sleep-dimension-item p {
+  font-size: 0.82rem;
+  line-height: 1.65;
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.sleep-evidence-caveat {
+  margin-top: 0.5rem;
+  padding: 1rem 1.1rem;
+  background: #fafbf9;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.sleep-evidence-caveat p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0.65rem 0 0;
+}
+
+.sleep-evidence-caveat strong {
+  color: var(--text);
+}
+
+.sleep-evidence-sources {
+  margin-top: 1.25rem;
+}
+
+.sleep-evidence-sources a {
+  color: var(--accent-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.sleep-evidence-sources a:hover {
+  color: var(--accent);
 }
 
 .matrix-advantage {
@@ -1697,6 +1962,115 @@ body {
   font-size: 0.8rem;
 }
 
+/* Sales forecast */
+.sales-forecast-body {
+  padding: 1.5rem;
+}
+
+.sales-forecast-intro {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.sales-forecast-intro strong {
+  color: var(--text);
+}
+
+.sales-forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.sales-forecast-card {
+  background: #fafbf9;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.1rem 1.15rem 1.15rem;
+  text-align: center;
+}
+
+.sales-forecast-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-bottom: 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.sales-forecast-card h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+  color: var(--text);
+}
+
+.sales-forecast-channel {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0 0 0.75rem;
+}
+
+.sales-forecast-amount {
+  font-size: 1.35rem;
+  line-height: 1.2;
+  color: var(--accent-dark);
+  margin: 0 0 0.25rem;
+}
+
+.sales-forecast-amount strong {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.sales-forecast-note {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.sales-forecast-total {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--accent-soft);
+  border: 1px solid rgba(30, 81, 40, 0.2);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  text-align: center;
+}
+
+.sales-forecast-total-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.sales-forecast-total-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+.sales-forecast-total-detail {
+  width: 100%;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
 /* Gantt chart */
 .gantt-body {
   padding: 1.5rem;
@@ -2329,6 +2703,47 @@ body.matrix-modal-open {
 }
 
 /* 3D Viewer */
+.viewer-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 1rem;
+  padding: 0.85rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: #fafbf9;
+}
+
+.viewer-downloads-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.viewer-download-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--accent-dark);
+  text-decoration: none;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.viewer-download-link:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.viewer-download-icon {
+  flex-shrink: 0;
+}
+
 .viewer-wrap {
   padding: 0;
 }
@@ -2841,8 +3256,13 @@ body.lightbox-open {
   }
 
   .product-sales-grid,
-  .product-features-grid {
+  .product-features-grid,
+  .sales-forecast-grid {
     grid-template-columns: 1fr;
+  }
+
+  .sales-forecast-body {
+    padding: 1.25rem;
   }
 
   .product-feature-card-report {
@@ -2924,6 +3344,18 @@ body.lightbox-open {
 
   .matrix-panel {
     padding: 0.85rem;
+  }
+
+  .sleep-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sleep-dimension-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sleep-evidence-body {
+    padding: 1.25rem;
   }
 
   .matrix-body {
