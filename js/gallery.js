@@ -62,6 +62,8 @@ function openLightbox(src, alt) {
   lb.querySelector(".image-lightbox-close").focus();
 }
 
+window.openImageLightbox = openLightbox;
+
 function bindImageZoom(wrap, item) {
   wrap.classList.add("gallery-image-zoomable");
   wrap.setAttribute("role", "button");
