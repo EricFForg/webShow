@@ -1,6 +1,6 @@
 window.SAMPLE_SHOWCASE = {
-  name: "样件展示",
-  subtitle: "打样与试制实物 · 结构、气路与电控真实状态",
+  name: "测试样存档",
+  subtitle: "打样与试制测试样 · 结构、气路与电控验证记录",
   items: [
     {
       name: "薄垫样件总览",

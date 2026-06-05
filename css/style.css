@@ -3430,47 +3430,6 @@ body.matrix-modal-open {
 }
 
 /* 3D Viewer */
-.viewer-downloads {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.65rem 1rem;
-  padding: 0.85rem 1.5rem;
-  border-bottom: 1px solid var(--border);
-  background: #fafbf9;
-}
-
-.viewer-downloads-label {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  letter-spacing: 0.02em;
-}
-
-.viewer-download-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--accent-dark);
-  text-decoration: none;
-  padding: 0.35rem 0.75rem;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background: #fff;
-  transition: border-color 0.15s, background 0.15s;
-}
-
-.viewer-download-link:hover {
-  border-color: var(--accent);
-  background: var(--accent-soft);
-}
-
-.viewer-download-icon {
-  flex-shrink: 0;
-}
-
 .viewer-wrap {
   padding: 0;
 }
@@ -3551,7 +3510,7 @@ body.matrix-modal-open {
   cursor: not-allowed;
 }
 
-/* Gallery carousel (样件展示等) */
+/* Gallery carousel (测试样存档等) */
 .gallery-carousel-section {
   padding-bottom: 0;
   overflow: hidden;

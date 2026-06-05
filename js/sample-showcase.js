@@ -4,7 +4,7 @@
 
   const config = window.SAMPLE_SHOWCASE;
   if (!config?.items?.length) {
-    console.error("未找到样件展示配置，请确认 assets/sample-showcase.js 已加载");
+    console.error("未找到测试样存档配置，请确认 assets/sample-showcase.js 已加载");
     return;
   }
 
@@ -177,19 +177,19 @@
         <p>${config.subtitle} · 点击预览图或左右按钮切换 · 点击图片可放大 · 共 ${items.length} 张</p>
       </header>
       <p class="sample-showcase-intro">
-        以下为项目打样阶段实物照片，展示气囊分层、气路布管与电控集成等方案的打样落地效果。
+        以下为项目打样与测试阶段实物存档，记录气囊分层、气路布管与电控集成等方案的验证状态。
       </p>
       <div class="gallery-carousel" aria-roledescription="carousel">
         <p class="gallery-carousel-live visually-hidden" aria-live="polite"></p>
         <div class="gallery-thumbs-wrap">
-          <div class="gallery-thumbs" role="tablist" aria-label="样件预览">${thumbsHtml}</div>
+          <div class="gallery-thumbs" role="tablist" aria-label="测试样预览">${thumbsHtml}</div>
         </div>
         <div class="gallery-carousel-viewport" tabindex="0">
           <div class="gallery-carousel-track">${panelsHtml}</div>
         </div>
         <div class="gallery-carousel-controls">
           <button type="button" class="gallery-carousel-btn gallery-carousel-prev" aria-label="上一张">‹</button>
-          <div class="gallery-carousel-dots" role="tablist" aria-label="样件轮播">${dotsHtml}</div>
+          <div class="gallery-carousel-dots" role="tablist" aria-label="测试样轮播">${dotsHtml}</div>
           <span class="gallery-carousel-counter">1 / ${items.length}</span>
           <button type="button" class="gallery-carousel-btn gallery-carousel-next" aria-label="下一张">›</button>
         </div>

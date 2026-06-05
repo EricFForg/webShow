@@ -8,6 +8,7 @@ window.GANTT_PLAN = {
   roleAvatars: {
     产品线: "images/avatars/pm.png",
     产品经理: "images/avatars/pm.png",
+    工业设计: "images/avatars/id.png",
     工业设计师: "images/avatars/id.png",
     CMF设计师: "images/avatars/id.png",
     工程组: "images/avatars/struct.png",
@@ -57,16 +58,16 @@ window.GANTT_PLAN = {
       budget: "2 万元",
       budgetNote: "含手板、CMF 与首轮电路打样物料",
       personnel: [
-        { role: "工业设计师", name: "1 人", duty: "薄垫外观、气囊布局与 CMF" },
-        { role: "工程组", name: "1 人", duty: "结构可行性、气路与电控接口" },
+        { role: "工业设计", name: "1 人", duty: "薄垫外观、气囊布局与 CMF" },
+        { role: "产品线", name: "1 人", duty: "结构可行性、气路与电控接口" },
       ],
       subtasks: [
-        { name: "2.1 第一轮设计 · 技术路线与评审", owner: "工业设计师", schedule: "D4 – D14" },
-        { name: "2.2 第二轮设计 · 方案/手板/复盘（供应商可介入）", owner: "工业设计师", schedule: "D15 – D28" },
-        { name: "2.3 选材 · 配件与 TPU 气囊材料明细", owner: "工业设计师", schedule: "D20 – D32" },
-        { name: "2.4 第三轮设计 · 方案/手板/评审/CMF", owner: "工业设计师", schedule: "D33 – D45" },
-        { name: "气囊分区与气路原理图定稿", owner: "工程组", schedule: "D25 – D40" },
-        { name: "多路气阀驱动与传感选型", owner: "工程组", schedule: "D30 – D45" },
+        { name: "2.1 第一轮设计 · 技术路线与评审", owner: "工业设计", schedule: "D4 – D14" },
+        { name: "2.2 第二轮设计 · 方案/手板/复盘（供应商可介入）", owner: "工业设计", schedule: "D15 – D28" },
+        { name: "2.3 选材 · 配件与 TPU 气囊材料明细", owner: "工业设计", schedule: "D20 – D32" },
+        { name: "2.4 第三轮设计 · 方案/手板/评审/CMF", owner: "工业设计", schedule: "D33 – D45" },
+        { name: "气囊分区与气路原理图定稿", owner: "产品线", schedule: "D25 – D40" },
+        { name: "多路气阀驱动与传感选型", owner: "产品线", schedule: "D30 – D45" },
       ],
       milestones: [
         { date: "7 月 30 日", title: "第二轮设计复盘通过" },
