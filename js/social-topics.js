@@ -67,7 +67,7 @@
       <h2>各平台讨论特点</h2>
       <div class="social-topics-platform-grid">${platformNotesHtml}</div>
     </div>
-    <p class="market-highlight social-topics-relevance"><strong>立项关联：</strong>${data.projectRelevance}</p>
+    <p class="market-highlight social-topics-relevance"><strong>洞察：</strong>${data.projectRelevance}</p>
     <p class="background-sources">${data.sources}</p>
   `;
 })();

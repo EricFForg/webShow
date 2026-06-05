@@ -177,7 +177,7 @@
         <p>${config.subtitle} · 点击预览图或左右按钮切换 · 点击图片可放大 · 共 ${items.length} 张</p>
       </header>
       <p class="sample-showcase-intro">
-        以下为项目打样阶段实物照片，对应结构概念图中的气囊分层、气路布管与电控集成方案，便于对照设计图纸理解从概念到样件的落地过程。
+        以下为项目打样阶段实物照片，展示气囊分层、气路布管与电控集成等方案的打样落地效果。
       </p>
       <div class="gallery-carousel" aria-roledescription="carousel">
         <p class="gallery-carousel-live visually-hidden" aria-live="polite"></p>

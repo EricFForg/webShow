@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="site-header">
-    <a href="#mattress-history-section" class="site-logo" aria-label="Me Nature">
+    <a href="#preface-section" class="site-logo" aria-label="Me Nature">
       <img src="images/logo-me-nature.png" alt="Me Nature" />
     </a>
     <div class="site-heading">
@@ -22,31 +22,59 @@
   </header>
 
   <div class="layout">
-    <aside class="sidebar">
+    <aside class="sidebar" id="site-sidebar">
       <div class="sidebar-inner">
-        <h2 class="sidebar-title">目录导航</h2>
-        <nav class="sidebar-nav">
-          <div class="nav-group">
-            <p class="nav-group-label">是什么</p>
-            <a href="#mattress-history-section" class="nav-link nav-link-sub">床垫发展历史</a>
-          </div>
-          <div class="nav-group">
-            <p class="nav-group-label">为什么</p>
-            <a href="#social-topics-section" class="nav-link nav-link-sub">社交讨论洞察</a>
-            <a href="#painpoints-section" class="nav-link nav-link-sub">电商平台差评摘录</a>
-            <a href="#smart-pad-change-section" class="nav-link nav-link-sub">智能薄垫能改变什么</a>
-          </div>
-          <a href="#background-section" class="nav-link">项目背景</a>
-          <a href="#sleep-evidence-section" class="nav-link">实验报告数据</a>
-          <a href="#audience-section" class="nav-link">人群与需求</a>
-          <a href="#matrix-section" class="nav-link">项目地图</a>
-          <a href="#market-section" class="nav-link">市场机会</a>
-          <a href="#product-section" class="nav-link">产品定义</a>
-          <a href="#model-section" class="nav-link">3D 模型</a>
-          <a href="#gallery-section" class="nav-link">结构概念图</a>
-          <a href="#sample-section" class="nav-link">样件展示</a>
-          <a href="#gantt-section" class="nav-link">项目计划</a>
-          <a href="#sales-forecast-section" class="nav-link">销售预计</a>
+        <div class="sidebar-header">
+          <h2 class="sidebar-title">目录导航</h2>
+        </div>
+        <nav class="sidebar-nav nav-tree" id="sidebar-nav-tree" aria-label="页面目录">
+          <a href="#preface-section" class="nav-link nav-tree-preface">前言</a>
+          <details class="nav-tree-branch" data-nav-branch="why" open>
+            <summary class="nav-tree-toggle nav-tree-root" title="点击展开或收起">
+              <span class="nav-tree-arrow" aria-hidden="true"></span>
+              <span class="nav-tree-label">为什么</span>
+            </summary>
+            <div id="nav-tree-why" class="nav-tree-children nav-tree-leaves">
+              <a href="#social-topics-section" class="nav-link nav-tree-leaf">社交讨论洞察</a>
+              <a href="#painpoints-section" class="nav-link nav-tree-leaf">电商平台差评摘录</a>
+              <a href="#smart-pad-change-section" class="nav-link nav-tree-leaf">智能薄垫能改变什么</a>
+              <a href="#sleep-evidence-section" class="nav-link nav-tree-leaf">实验报告数据</a>
+              <a href="#why-insight-section" class="nav-link nav-tree-leaf">核心洞察</a>
+            </div>
+          </details>
+          <details class="nav-tree-branch" data-nav-branch="how" open>
+            <summary class="nav-tree-toggle nav-tree-root" title="点击展开或收起">
+              <span class="nav-tree-arrow" aria-hidden="true"></span>
+              <span class="nav-tree-label">能做什么</span>
+            </summary>
+            <div id="nav-tree-how" class="nav-tree-children nav-tree-leaves">
+              <a href="#audience-section" class="nav-link nav-tree-leaf">场景分析</a>
+              <a href="#selling-points-section" class="nav-link nav-tree-leaf">核心卖点</a>
+              <a href="#our-advantages-section" class="nav-link nav-tree-leaf">我们的优势</a>
+            </div>
+          </details>
+          <details class="nav-tree-branch" data-nav-branch="what" open>
+            <summary class="nav-tree-toggle nav-tree-root" title="点击展开或收起">
+              <span class="nav-tree-arrow" aria-hidden="true"></span>
+              <span class="nav-tree-label">是什么</span>
+            </summary>
+            <div id="nav-tree-what" class="nav-tree-children nav-tree-leaves">
+              <a href="#product-section" class="nav-link nav-tree-leaf">产品定义</a>
+              <a href="#model-section" class="nav-link nav-tree-leaf">3D 模型</a>
+              <a href="#sample-section" class="nav-link nav-tree-leaf">样件展示</a>
+            </div>
+          </details>
+          <a href="#challenges-risks-section" class="nav-link nav-tree-preface">挑战与风险</a>
+          <details class="nav-tree-branch" data-nav-branch="cycle" open>
+            <summary class="nav-tree-toggle nav-tree-root" title="点击展开或收起">
+              <span class="nav-tree-arrow" aria-hidden="true"></span>
+              <span class="nav-tree-label">项目周期</span>
+            </summary>
+            <div id="nav-tree-cycle" class="nav-tree-children nav-tree-leaves">
+              <a href="#gantt-section" class="nav-link nav-tree-leaf">项目计划</a>
+              <a href="#sales-forecast-section" class="nav-link nav-tree-leaf">销售预计</a>
+            </div>
+          </details>
         </nav>
       </div>
     </aside>
@@ -55,12 +83,56 @@
 
       <p style="margin-top: 30px;margin-bottom: 30px;"><code>https://ericfforg.github.io/webShow/</code></p>
 
-      <section id="mattress-history-section" class="content-card">
+      <section id="preface-section" class="content-card">
         <header class="section-header">
-          <h1>床垫发展历史</h1>
-          <p>从天然填充到 AI 主动调节 · 代表性节点时间轴</p>
+          <h1>前言</h1>
+          <p>基于睡眠白皮书 · 现代人睡眠问题调研说明</p>
         </header>
-        <div id="mattress-history-timeline" class="mattress-history-body"></div>
+        <div class="preface-body">
+          <p class="preface-lead">
+            本立项材料以<strong>《中国国民睡眠健康白皮书》</strong>及近年公开睡眠流行病学调查为起点，梳理当代人在「能睡」与「睡好」之间的落差。睡眠占据人生约三分之一时长，却长期被视为个人生活习惯问题；当失眠、浅睡、日间困倦成为普遍体验，床垫与卧室环境如何从「被动承托」走向「可感知、可调节」，成为智能睡眠产品需要回答的前置命题。
+          </p>
+
+          <div class="stat-grid preface-stat-grid">
+            <article class="stat-card">
+              <p class="stat-value">59.4%</p>
+              <p class="stat-label">睡眠质量一般及以下</p>
+            </article>
+            <article class="stat-card">
+              <p class="stat-value">超 3 亿</p>
+              <p class="stat-label">存在睡眠障碍人群（估算）</p>
+            </article>
+            <article class="stat-card">
+              <p class="stat-value">7h+</p>
+              <p class="stat-label">理想时长 vs 实际普遍不足</p>
+            </article>
+          </div>
+
+          <h2 class="preface-subtitle">白皮书揭示的现代人睡眠问题</h2>
+          <ul class="preface-problem-list">
+            <li><strong>睡眠时长与质量双低</strong>——入睡晚、易醒、早醒频发，主观「睡不够」「睡不沉」比例高，日间注意力与情绪稳定性随之下降。</li>
+            <li><strong>压力与作息失衡</strong>——工作节奏、屏幕使用、焦虑情绪交织，昼夜节律被打乱，「报复性熬夜」与「躺床睡不着」并存。</li>
+            <li><strong>环境与床品不匹配</strong>——软硬度、支撑度、透气性难以随体重与睡姿变化；伴侣翻身、闷热、异响等导致睡眠碎片化。</li>
+            <li><strong>认知与行动脱节</strong>——多数人认同睡眠重要，却缺乏可量化的自我监测与可执行的改善路径，试错成本高、决策焦虑明显。</li>
+          </ul>
+
+          <h2 class="preface-subtitle">洞察</h2>
+          <div class="preface-insight">
+            <p>
+              睡眠问题是<strong>现代人的普遍困扰</strong>，并与<strong>身体健康息息相关</strong>；随着人们对健康越来越重视，与睡眠健康直接相关的<strong>床垫</strong>，正成为<strong>睡眠升级的主要战场</strong>。
+            </p>
+            <p>
+              从<strong>技术维度</strong>看，随着<strong>气囊、传感器、AI 模型</strong>等能力的逐步成熟，<strong>自适应调节</strong>的技术门槛正在降低，成本也进入<strong>可接受的范围</strong>——正是入局的好时机。
+            </p>
+            <p>
+              若等待市场进一步发展、自适应床垫接受度全面提高后再进入，<strong>竞争格局、渠道与用户心智</strong>都将更为固化，入局难度将显著高于当下。
+            </p>
+          </div>
+
+          <p class="background-sources">
+            调研归纳参考：《2025 中国国民睡眠健康白皮书》；中国睡眠研究会相关公开报道；新华网、行业媒体关于国民睡眠与智能睡眠产品的报道。具体比例与表述为公开资料归纳，供内部立项讨论。
+          </p>
+        </div>
       </section>
 
       <section id="social-topics-section" class="content-card">
@@ -171,6 +243,10 @@
             </article>
           </div>
 
+          <p class="market-highlight painpoints-insight">
+            <strong>洞察：</strong>差评揭示了目前市面上床垫存在的普遍性问题：试睡/体验时间有限，退换床垫的成本又太高，许多人只能「委屈自己」去适应床垫，往往直到出现健康问题才引起重视。
+          </p>
+
           <p class="background-sources">
             评论归纳来源：京东/天猫床垫品类差评与中评高频词（弹簧床垫、乳胶床垫、记忆棉等 SKU）；黑猫投诉平台 2024 年床垫塌陷/不可维修案例；网易、《2025 中国国民睡眠健康白皮书》。引用为用户反馈典型表述归纳，非逐字原始截图。
           </p>
@@ -180,7 +256,7 @@
       <section id="smart-pad-change-section" class="content-card">
         <header class="section-header">
           <h1>智能薄垫能改变什么</h1>
-          <p>从传统静态床垫的 8 类痛点 · 看气囊薄垫如何「床适人」</p>
+          <p>从电商差评中的主要痛点 · 看气囊薄垫如何「床适人」</p>
         </header>
         <div class="painpoints-body">
           <p class="painpoints-intro">
@@ -214,7 +290,7 @@
                   <tr>
                     <td>夫妻睡感不一</td>
                     <td>左右各自舒适，互不迁就</td>
-                    <td><strong>左右独立六区</strong>各自软硬调节，单人侧不影响伴侣</td>
+                    <td><strong>肩 · 腰 · 背 · 臀 · 腿</strong>左右独立分区调节，单人侧不影响伴侣</td>
                     <td>左右独立气路，分区方案可预设 + APP 微调</td>
                   </tr>
                   <tr>
@@ -226,14 +302,8 @@
                   <tr>
                     <td>闷热、局部过热</td>
                     <td>透气散热，四季可用</td>
-                    <td>气囊内孔降低封闭蓄热；配合透气网孔内套</td>
-                    <td>气囊开孔 + 网孔内套，气泵间歇工作时可辅助散热</td>
-                  </tr>
-                  <tr>
-                    <td>打鼾影响睡眠</td>
-                    <td>减鼾不惊醒、改善呼吸</td>
-                    <td>识别鼾声后<strong>抬升头段 15°</strong>或颈部气囊抬升，畅通气道</td>
-                    <td>薄垫可集成于智能床架，气囊配合头肩部抬升</td>
+                    <td>气囊间缝隙利于空气流通，上层 3D 层进一步提高透气性</td>
+                    <td>网孔内套，气泵间歇工作时可辅助散热</td>
                   </tr>
                   <tr>
                     <td>不可维修、整床报废</td>
@@ -252,7 +322,7 @@
             </div>
           </div>
 
-          <div class="painpoints-conclusion">
+          <div class="painpoints-conclusion smart-pad-conclusion-highlight">
             <h2>结论：从「人选床」到「床适人」</h2>
             <p>
               新华网援引中国标准化研究院专家观点：传统床垫只能提供<strong>被动承托</strong>，智能床的核心价值在于<strong>脊柱科学支撑、压力合理分配、睡姿动态适配</strong>三项。电商平台评论印证——用户不是在抱怨「没有床垫」，而是在抱怨<strong>一张固定软硬的垫子无法适配变化中的身体</strong>。
@@ -264,120 +334,6 @@
 
           <p class="background-sources">
             论证参考：新华网《智能床真的能带来好睡眠吗？》；中国标准化研究院专家公开观点；慕思、喜临门、麒盛等 AI 床垫/智能床公开产品资料。映射关系为项目研判，供内部讨论。
-          </p>
-        </div>
-      </section>
-
-      <section id="background-section" class="content-card">
-
-        <header class="section-header">
-          <h1>项目背景</h1>
-          <p>主流 AI 智能床垫公开销售数据调研与趋势分析</p>
-        </header>
-        <div class="background-body">
-          <div class="background-block">
-            <h2>行业大盘（公开研报）</h2>
-            <p>
-              据华经产业研究院等公开行业研究，<strong>2024 年中国智能床垫行业市场规模约 131.4 亿元</strong>，2018—2024 年复合增长率约 <strong>26.35%</strong>。行业已从「监测展示」走向「数据 + 主动调节 + 健康管理」；智能床/垫渗透率国内仍处低位（慕思 2025 年报披露国内智能床渗透率约 <strong>5%</strong>，对比美国智能床渗透率约 <strong>14%</strong> 量级），扩容空间较大。
-            </p>
-            <div class="stat-grid">
-              <div class="stat-card">
-                <span class="stat-value">131.4 亿</span>
-                <span class="stat-label">2024 年国内智能床垫市场规模（研报）</span>
-              </div>
-              <div class="stat-card">
-                <span class="stat-value">≈26%</span>
-                <span class="stat-label">2018—2024 年行业 CAGR（研报）</span>
-              </div>
-              <div class="stat-card">
-                <span class="stat-value">≈5% / 14%</span>
-                <span class="stat-label">中 / 美智能床渗透率（公开披露口径）</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="background-block">
-            <h2>头部品牌：AI 智能床垫相关公开数据</h2>
-            <p class="background-note">
-              说明：上市公司年报对「AI 床垫」口径不一（有的单列 AI 产品收入，有的归入「功能智能产品线」）。下表仅整理<strong>可查证公开表述</strong>，便于横向对比趋势，非完整财务拆解。
-            </p>
-            <div class="data-table-wrap">
-              <table class="data-table">
-                <thead>
-                  <tr>
-                    <th>品牌 / 公司</th>
-                    <th>整体营收（近年）</th>
-                    <th>AI / 智能睡眠相关公开数据</th>
-                    <th>代表产品与动作</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>慕思股份</strong><br /><span class="table-meta">001323.SZ</span></td>
-                    <td>2025 年营收 <strong>52.27 亿元</strong>（同比承压）；2026Q1 营收 11.87 亿元（+5.86%）</td>
-                    <td>
-                      <ul class="table-list">
-                        <li>2024 年 3 月推出 AI 床垫 T11 PRO（潮汐算法）；<strong>至 2024 年 11 月 AI 智能床垫销售额突破 1 亿元</strong>（公司/媒体公开）</li>
-                        <li>2025 年 <strong>AI 产品收入 2.55 亿元</strong>，同比 <strong>+127.68%</strong>，约占总营收 <strong>4.88%</strong>（2025 年报）</li>
-                      </ul>
-                    </td>
-                    <td>T11+ / 潮汐算法 2.0；L4 级智能床认证；加大 AI 与品牌投放</td>
-                  </tr>
-                  <tr>
-                    <td><strong>喜临门</strong><br /><span class="table-meta">603008.SH</span></td>
-                    <td>2024 年营收 <strong>87.29 亿元</strong>（+0.59%）；归母净利润 3.22 亿元</td>
-                    <td>
-                      <ul class="table-list">
-                        <li>2024 年 <strong>功能智能产品线销售额突破 1 亿元</strong>（年报）</li>
-                        <li>床垫主业营收 52.7 亿元（+4.85%），智能化为明确第二曲线</li>
-                      </ul>
-                    </td>
-                    <td>aise 宝褓系列、云动系统；与清华共建智慧睡眠联合研究中心；战略升级为「AI 陪伴」</td>
-                  </tr>
-                  <tr>
-                    <td><strong>麒盛科技</strong><br /><span class="table-meta">603610.SH · 舒福德</span></td>
-                    <td>2024 年营收 <strong>29.58 亿元</strong>（-4.66%）</td>
-                    <td>
-                      <ul class="table-list">
-                        <li>智能电动床收入 <strong>23.94 亿元</strong>（-5.12%），为核心品类</li>
-                        <li>年报未单列「AI 床垫」收入，智能床以电动床 + 睡眠监测/干预为主</li>
-                      </ul>
-                    </td>
-                    <td>舒福德 S300 Pro；参与国标《智能床》GB/T 45231-2025；北美供应链 + 国内门店扩张</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="background-block">
-            <h2>为什么头部品牌都在做、且 AI 品类增速快？</h2>
-            <div class="reason-grid">
-              <div class="reason-item">
-                <h3>1. 主业增长见顶，需要高毛利新曲线</h3>
-                <p>地产与家居大盘进入存量竞争，传统床垫、床架增速放缓。慕思、喜临门等将 AI / 智能睡眠作为差异化单品，用更高单价与品牌故事对冲主业压力。</p>
-              </div>
-              <div class="reason-item">
-                <h3>2. 渗透率极低 → 增量市场逻辑成立</h3>
-                <p>智能床在国内仍是「低个位数」渗透率，对比成熟市场有明显差距。谁先完成消费者教育（门店上样、算法叙事、睡眠报告），谁更易占领心智。</p>
-              </div>
-              <div class="reason-item">
-                <h3>3. 需求从「睡得着」到「睡得好、可管理」</h3>
-                <p>亚健康、久坐、银发康养等人群愿意为监测、调节、个性化承托付费；AI 床垫把产品从家具升级为「睡眠解决方案」，利于复购与服务延伸。</p>
-              </div>
-              <div class="reason-item">
-                <h3>4. 技术路径已打通，竞争转向系统能力</h3>
-                <p>气囊调节、压力传感、算法调节、电动床架联动等方案成熟；头部品牌比拼的是算法、认证、专利与供应链（如 TPU 气囊、多路气阀），而非单一功能点。</p>
-              </div>
-              <div class="reason-item">
-                <h3>5. 对本项目的启示</h3>
-                <p>市场已验证「智能 + 气囊」方向，但品牌端仍依赖可靠芯材与可量产结构。浙江大自然在 TPU 充气制品与气囊工艺上的积累，可对接品牌方「有概念、要落地」的供应链需求。</p>
-              </div>
-            </div>
-          </div>
-
-          <p class="background-sources">
-            数据来源（公开）：慕思股份 2024—2025 年度报告及业绩说明、海通国际/长江证券等研报对慕思 AI 床垫报道；喜临门 2024 年年度报告；麒盛科技 2024 年年度报告；华经产业研究院《2025—2031 年中国智能床垫行业发展报告》等行业研究摘要。数据截至公开披露日，仅供项目内部参考。
           </p>
         </div>
       </section>
@@ -554,6 +510,10 @@
             </p>
           </div>
 
+          <p class="market-highlight sleep-evidence-insight">
+            <strong>洞察：</strong>实验显示，智能床垫能<strong>大幅提高深睡时间</strong>、<strong>提高入睡速度</strong>、<strong>减少翻身次数</strong>、<strong>提高快速眼动睡眠的时间</strong>——这些数据都指向<strong>睡眠质量提高了</strong>；而睡眠质量与健康息息相关，也意味着<strong>健康指数提高了</strong>。
+          </p>
+
           <p class="background-sources sleep-evidence-sources">
             数据来源：
             <a href="https://www.news.cn/fortune/20260407/428a3954e5d145f1962da9029ad7d650/c.html" target="_blank" rel="noopener noreferrer">新华网《智能床真的能带来好睡眠吗？》</a>（2026）；
@@ -567,10 +527,30 @@
         </div>
       </section>
 
+      <section id="why-insight-section" class="content-card">
+        <header class="section-header">
+          <h1>核心洞察</h1>
+          <p>从社交讨论到电商差评 · 看下一代睡眠产品的必然性</p>
+        </header>
+        <div class="why-insight-body">
+          <p class="why-insight-lead">
+            从<strong>社交讨论</strong>到<strong>电商差评</strong>可以看出：人们不再满足于「能睡」，而更希望<strong>睡好</strong>。
+          </p>
+          <ul class="why-insight-list">
+            <li><strong>软硬度不匹配</strong>——买到不合适软硬的床垫，易引发晨起<strong>腰背酸痛</strong>、睡眠碎片化等连锁问题；</li>
+            <li><strong>材料与体验</strong>——愈发关注<strong>环保安全</strong>、<strong>伴侣抗干扰</strong>，以及能否真正改善睡眠；</li>
+            <li><strong>决策焦虑</strong>——面对复杂参数与营销话术，普遍担心<strong>被收智商税</strong>、试错成本高。</li>
+          </ul>
+          <p class="market-highlight why-insight-conclusion">
+            <strong>作为下一代睡眠产品，AI 智能床垫</strong>（及可嵌入传统床垫的<strong>智能薄垫</strong>）有望对症解决软硬度不可调、伴侣干扰等核心矛盾——让床从「出厂固定」走向「随人适配」，正是本项目立项的逻辑起点。
+          </p>
+        </div>
+      </section>
+
       <section id="audience-section" class="content-card">
         <header class="section-header">
-          <h1>人群与需求</h1>
-          <p>AI 智能床垫核心目标人群画像与需求痛点分析</p>
+          <h1>场景分析</h1>
+          <p>AI 智能床垫核心应用场景与需求痛点分析</p>
         </header>
         <div class="audience-body">
           <p class="audience-intro">
@@ -669,34 +649,9 @@
             </article>
           </div>
 
-          <div class="audience-summary">
-            <h2>需求共性：为什么这些人群愿意买单？</h2>
-            <div class="reason-grid">
-              <div class="reason-item">
-                <h3>从家具到健康服务</h3>
-                <p>消费者不再只为「一张垫」付费，而是为睡眠数据、个性化调节和长期健康管理付费。</p>
-              </div>
-              <div class="reason-item">
-                <h3>从被动承托到主动干预</h3>
-                <p>AI 床垫可根据体征实时调节气囊/软硬度，解决传统床垫「一夜一种睡感」的局限。</p>
-              </div>
-              <div class="reason-item">
-                <h3>场景分化明确</h3>
-                <p>年轻人要效率与科技，家庭要兼顾多人，银发要安全与照护——均需可配置的结构与算法支撑。</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="audience-conclusion">
-            <h2>总结</h2>
-            <p class="audience-highlight">
-              <strong>智能床垫是对传统床垫的升级换代，也是行业认可的发展趋势。</strong>
-            </p>
-            <p class="audience-question">
-              <span class="audience-question-label">提问</span>
-              现在有 2 张床垫：一张是使用了天然乳胶、羊毛、独立弹簧的<strong>手工床垫</strong>，售价 8,000 元；另一张是<strong>可调节软硬度、能查看睡眠报告</strong>的智能床垫，同样卖 8,000 元——<strong>你会怎么选择？</strong>
-            </p>
-          </div>
+          <p class="market-highlight audience-insight">
+            <strong>洞察：</strong>床垫是<strong>刚需产品</strong>，无论哪个人群，都需要更好的睡眠；只是在智能床垫的发展初期，一些<strong>迫切需要改变睡眠状况</strong>的人会优先尝试。而随着产品逐步完善与市场教育的普及，未来<strong>智能调节床垫</strong>的市场占有率会逐步提高，成本有望与现有的<strong>中端床垫</strong>持平。
+          </p>
 
           <p class="background-sources">
             参考：新华网《智能床真的能带来好睡眠吗？》；喜临门、慕思、麒盛等品牌公开产品定位；银发功能床垫团体标准（T/GDSGDSIA 14-2025）等。配图来源：Unsplash（Unsplash License，免费可商用）。
@@ -704,197 +659,101 @@
         </div>
       </section>
 
-      <section id="matrix-section" class="content-card">
+      <section id="selling-points-section" class="content-card">
         <header class="section-header">
-          <h1>项目地图</h1>
-          <p>舒适度 × 价格定位 · 点击圆图查看详情</p>
+          <h1>核心卖点</h1>
+          <p>三项核心价值 · 对应场景分析中的六类目标用户</p>
         </header>
-        <div class="matrix-body">
-          <p class="matrix-intro">
-            将主流床垫类型映射到<strong>舒适度 × 价格</strong>坐标系。舒适度评分依据右侧标准综合评估（非实验室单指标），价格为市场主流零售区间中位参考；各类型以代表图片显示，<strong>点击圆图</strong>可查看价格区间、软硬度、优缺点。
+        <div class="selling-points-body">
+          <p class="selling-points-intro">
+            以下卖点承接<strong>场景分析</strong>中各人群的痛点与需求，说明智能薄垫如何通过<strong>气囊分区调节 + 睡眠监测</strong>具体回应——从「卖功能」落到「解决谁在什么场景下的什么问题」。
           </p>
-
-          <div class="matrix-layout">
-            <div id="mattress-matrix-chart" class="matrix-chart"></div>
-            <aside class="matrix-legend">
-              <h3>舒适度评分标准</h3>
-              <div class="matrix-scale">
-                <div class="matrix-scale-item matrix-scale-high">
-                  <span class="scale-num">10</span>
-                  <p>整晚少翻身，无神经压迫，晨起无腰酸背痛，透气与热量管理优秀</p>
-                </div>
-                <div class="matrix-scale-item matrix-scale-mid">
-                  <span class="scale-num">5</span>
-                  <p>基础承托尚可，但难以适配多种睡姿与季节，存在明显短板</p>
-                </div>
-                <div class="matrix-scale-item matrix-scale-low">
-                  <span class="scale-num">1</span>
-                  <p>基础平板支撑，舒适度差，腰部易悬空，释压与控温能力弱</p>
-                </div>
+          <div class="selling-points-grid selling-points-grid--scenario">
+            <article class="selling-point-card">
+              <span class="selling-point-num">1</span>
+              <h3>全周期护脊</h3>
+              <p class="selling-point-summary">
+                肩 · 腰 · 背 · 臀 · 腿<strong>左右独立分区</strong>，气囊动态充放维持脊椎中立位——随体重、睡姿与人生阶段变化而调，告别出厂固定软硬度。
+              </p>
+              <div class="selling-point-scenarios">
+                <h4>场景如何满足</h4>
+                <ul>
+                  <li><strong>年轻品质睡眠人群</strong>——<strong>记忆模式</strong>保存个人分区软硬度，每次上床自动恢复，满足「睡感可管理」。</li>
+                  <li><strong>亚健康与久坐办公族</strong>——肩腰分区<strong>自适应追腰</strong>，缓解日间伏案导致的夜间悬空、腰背酸痛。</li>
+                  <li><strong>中年家庭用户</strong>——<strong>左右独立六区</strong>，夫妻各调各的软硬，解决「一个人太软一个人太硬」的将就问题。</li>
+                  <li><strong>银发与康养人群</strong>——多区体压分散、支撑可调，减轻同一点位长期压迫，维持稳定承托。</li>
+                  <li><strong>术后康复与腰脊需求者</strong>——康复各阶段通过 App <strong>渐进微调</strong>分区硬度，无需因恢复进度更换整张床垫。</li>
+                </ul>
               </div>
-              <p class="matrix-hint">圆点位置 = 该类型主流价位的中位参考 + 综合舒适度评分。<strong>智能薄垫</strong>（蓝圈）、<strong>AI 智能床垫</strong>（绿圈）为本项目重点标注。</p>
-              <p class="matrix-hint matrix-hint-src">配图来源：京东商城 / 苏宁易购商品主图，智能薄垫为项目结构图（仅供项目展示参考）</p>
-            </aside>
-          </div>
-
-          <div class="matrix-advantage">
-            <p class="matrix-advantage-note">
-              以<strong>独立袋装弹簧</strong>、<strong>记忆棉</strong>、<strong>电动床</strong>、<strong>AI 智能床</strong>与<strong>智能薄垫</strong>五种主选品类，从价格区间、替换难度、舒适度、智能化、环保性五个维度对比。
-            </p>
-            <div class="advantage-table-wrap">
-              <table class="advantage-table">
-                <thead>
-                  <tr>
-                    <th>对比维度</th>
-                    <th>独立袋装弹簧</th>
-                    <th>记忆棉</th>
-                    <th>电动床</th>
-                    <th>AI 智能床</th>
-                    <th class="advantage-col-highlight">智能薄垫（本项目）</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>价格区间</td>
-                    <td>3,000 – 12,000 元</td>
-                    <td>2,000 – 6,000 元</td>
-                    <td>6,000 – 25,000 元<br><span class="advantage-cell-note">（床架 + 床垫）</span></td>
-                    <td>8,000 – 40,000+ 元</td>
-                    <td class="advantage-col-highlight"><strong>5,000 – 8,000 元</strong></td>
-                  </tr>
-                  <tr>
-                    <td>替换难度</td>
-                    <td>高<br><span class="advantage-cell-note">整床搬运更换</span></td>
-                    <td>高<br><span class="advantage-cell-note">整床更换</span></td>
-                    <td>很高<br><span class="advantage-cell-note">床架与床垫配套更换</span></td>
-                    <td>很高<br><span class="advantage-cell-note">整床高投入更换</span></td>
-                    <td class="advantage-col-highlight"><strong>低</strong><br><span class="advantage-cell-note">叠放旧垫，8 cm 即装即用</span></td>
-                  </tr>
-                  <tr>
-                    <td>舒适度</td>
-                    <td>7.0 / 10<br><span class="advantage-cell-note">支撑均衡，出厂固定软硬度</span></td>
-                    <td>6.8 / 10<br><span class="advantage-cell-note">贴合释压好，易蓄热</span></td>
-                    <td>6.5 / 10<br><span class="advantage-cell-note">角度可调，床垫本体多为常规款</span></td>
-                    <td>8.8 / 10<br><span class="advantage-cell-note">动态调节，睡感优秀</span></td>
-                    <td class="advantage-col-highlight"><strong>9.0 / 10</strong><br><span class="advantage-cell-note">记忆棉 + 气囊分层，软硬随睡姿变化</span></td>
-                  </tr>
-                  <tr>
-                    <td>智能化</td>
-                    <td>2.0 / 10<br><span class="advantage-cell-note">被动承托，无动态调节</span></td>
-                    <td>2.0 / 10<br><span class="advantage-cell-note">无传感与闭环调节</span></td>
-                    <td>5.0 / 10<br><span class="advantage-cell-note">遥控升降，无睡眠传感闭环</span></td>
-                    <td>9.5 / 10<br><span class="advantage-cell-note">传感 + 算法 + 动态干预</span></td>
-                    <td class="advantage-col-highlight"><strong>8.5 / 10</strong><br><span class="advantage-cell-note">传感 + 气囊执行，模块化智能芯材</span></td>
-                  </tr>
-                  <tr>
-                    <td>环保性</td>
-                    <td>中等<br><span class="advantage-cell-note">弹簧可回收，海绵层降解慢</span></td>
-                    <td>偏低<br><span class="advantage-cell-note">聚氨酯难降解，需关注 VOC</span></td>
-                    <td>中等偏低<br><span class="advantage-cell-note">含电机电控，电子废弃物</span></td>
-                    <td>中等<br><span class="advantage-cell-note">多层复合 + 电控，报废处置复杂</span></td>
-                    <td class="advantage-col-highlight"><strong>较高</strong><br><span class="advantage-cell-note">TPU 气囊 + 生物基海绵，材料可降解；电路可回收；薄层叠加保留旧垫，减少整床废弃</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="matrix-conclusion">
-            <h2>总结：打破「舒适—价格」线性约束</h2>
-            <p>
-              坐标图显示，主流床垫大致遵循<strong>「舒适度越高、价格越高」</strong>的线性规律。本项目智能薄垫在 5,000–8,000 元价位段，以<strong>更高舒适度</strong>切入市场——综合睡感对标中高端乳胶弹簧床垫，并叠加动态调节与智能干预能力，形成差异化竞争力。
-            </p>
-            <p>
-              床垫属于高频刚需品类。同等预算下，若消费者能以相近价格获得<strong>更智能、更舒适</strong>的睡眠体验，产品更易赢得市场认可。当前智能床垫推广的主要障碍，在于用户对<strong>气囊失效即整体塌陷、无法入睡</strong>的担忧。
-            </p>
-            <p>
-              本项目以<strong>海绵气囊</strong>作为承托与调节单元：即便局部漏气，芯材仍保持基本支撑，床垫可继续使用，睡感仅轻微变软，<strong>不会引发整体塌陷或丧失可睡性</strong>——在保留智能调节价值的同时，显著降低使用风险与售后顾虑。配套推出<strong>5 年质保方案</strong>，可进一步打消消费者顾虑；气囊成本约占整机成本的 <strong>12%</strong>，即便在质保期内提供更换服务，对整体收支影响亦可控。
-            </p>
+            </article>
+            <article class="selling-point-card">
+              <span class="selling-point-num">2</span>
+              <h3>提升深睡眠时长</h3>
+              <p class="selling-point-summary">
+                <strong>记忆 / 自适应</strong>模式减少因软硬不适、体动干扰引发的微觉醒与无效翻身，让连续深睡片段更长——从「睡够时间」进阶为「睡深睡沉」。
+              </p>
+              <div class="selling-point-scenarios">
+                <h4>场景如何满足</h4>
+                <ul>
+                  <li><strong>年轻品质睡眠人群</strong>——睡感匹配后减少浅睡与频繁翻身，延长连续深睡时段。</li>
+                  <li><strong>亚健康与久坐办公族</strong>——自适应随睡姿微调，降低因肩腰不适导致的<strong>睡眠碎片化</strong>。</li>
+                  <li><strong>中年家庭用户</strong>——气囊层与下层弹簧<strong>解耦</strong>，单侧调节与翻身不易联动整张床，减少伴侣相互惊醒。</li>
+                  <li><strong>银发与康养人群</strong>——稳定、可预期的承托减少夜醒再起，提升主观「一觉到天亮」比例。</li>
+                  <li><strong>术后康复与腰脊需求者</strong>——支撑匹配后减少疼痛相关微觉醒，利于恢复期连续休息。</li>
+                </ul>
+              </div>
+            </article>
+            <article class="selling-point-card">
+              <span class="selling-point-num">3</span>
+              <h3>可视化睡眠报告</h3>
+              <p class="selling-point-summary">
+                每日推送<strong>深睡时长、翻身次数、入睡时间</strong>及呼吸/心率曲线等，形成「监测 → 调节 → 再监测」闭环，让改善<strong>可感知、可追踪</strong>。
+              </p>
+              <div class="selling-point-scenarios">
+                <h4>场景如何满足</h4>
+                <ul>
+                  <li><strong>年轻品质睡眠人群</strong>——分期报告与入睡时间可视化，契合「把床垫当作睡眠管理入口」的消费心智。</li>
+                  <li><strong>亚健康与久坐办公族</strong>——追踪深睡与翻身趋势，验证护脊调节是否真正带来睡眠结构改善。</li>
+                  <li><strong>中年家庭用户</strong>——各侧体动与深睡数据可分别查看，支撑家庭健康决策与复盘。</li>
+                  <li><strong>银发与康养人群</strong>——呼吸/心率曲线与风险提示辅助家属关注异常（<strong>非医疗诊断</strong>，异常应就医）。</li>
+                  <li><strong>术后康复与腰脊需求者</strong>——持续记录恢复期睡眠变化，为作息与康复节奏调整提供参考。</li>
+                  <li><strong>床垫品牌与供应链（B 端）</strong>——「护脊 + 深睡 + 可视化报告」构成终端可传播的三段式故事，薄垫芯材可嵌入品牌现有产品线。</li>
+                </ul>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      
-
-      <section id="market-section" class="content-card">
+      <section id="our-advantages-section" class="content-card">
         <header class="section-header">
-          <h1>市场机会</h1>
-          <p>床垫品类演变 · 趋势研判 · 智能睡眠与智能家居的交汇</p>
+          <h1>我们的优势</h1>
+          <p>浙江大自然切入智能薄垫的差异化能力</p>
         </header>
-        <div class="market-body">
-          <p class="market-intro">
-            床垫并非静态的「家具单品」，而是随材料、制造与数字技术迭代不断升级的<strong>睡眠基础设施</strong>。理解其演变路径，有助于判断下一阶段竞争焦点——以及本项目智能薄垫所处的窗口期。
-          </p>
-          <p class="market-highlight"><strong>AI 智能床是对于传统床垫的升级换代，是床垫行业发展的必然趋势。</strong></p>
-
-          <div class="market-block">
-            <h2>床垫演变：从「能睡」到「会适应」</h2>
-            <div class="evolution-track">
-              <article class="evolution-step">
-                <span class="evolution-phase">阶段 1</span>
-                <h3>基础承托时代</h3>
-                <p class="evolution-key">棕垫 · 木板 · 整网弹簧</p>
-                <p>解决「有床可睡」，以硬度与耐用为核心卖点；睡感单一，无法适配个体差异与睡姿变化。</p>
-              </article>
-              <article class="evolution-step">
-                <span class="evolution-phase">阶段 2</span>
-                <h3>舒适释压时代</h3>
-                <p class="evolution-key">记忆棉 · 乳胶 · 独袋弹簧</p>
-                <p>材料升级带来贴合与抗干扰，消费者开始为「睡感」付费；但软硬度出厂即固定，仍是被动承托。</p>
-              </article>
-              <article class="evolution-step">
-                <span class="evolution-phase">阶段 3</span>
-                <h3>复合均衡时代</h3>
-                <p class="evolution-key">乳胶+弹簧 · 分区设计 · 品牌分层</p>
-                <p>高端市场堆叠层数与工艺叙事，价格与舒适度线性上行；智能化多停留在电动升降、简单监测等浅层功能。</p>
-              </article>
-              <article class="evolution-step evolution-step-current">
-                <span class="evolution-phase">阶段 4 · 当下</span>
-                <h3>智能主动时代</h3>
-                <p class="evolution-key">传感 · 气囊/电机 · AI 算法 · 睡眠干预</p>
-                <p>竞争焦点从「堆材料」转向「堆算力与数据」——床垫开始感知身体、决策调节、闭环干预，从人适应床转向<strong>床适应人</strong>。</p>
-              </article>
-            </div>
+        <div class="selling-points-body">
+          <div class="selling-points-grid">
+            <article class="selling-point-card selling-point-card--ours">
+              <span class="selling-point-num">1</span>
+              <h3>30 年充气制品积淀</h3>
+              <p>
+                浙江大自然拥有<strong>30 年充气制品生产、研发与销售</strong>经验，气密性、耐压与量产一致性经户外级场景长期验证——为智能薄垫<strong>气囊质量与可靠性</strong>提供可信赖的制造底座。
+              </p>
+            </article>
+            <article class="selling-point-card selling-point-card--ours">
+              <span class="selling-point-num">2</span>
+              <h3>TPU 材料优势</h3>
+              <p>
+                依托成熟 <strong>TPU</strong> 气囊工艺，在保障气密与耐久的同时<strong>降低芯材成本</strong>；材料路径清晰、可回收性更好，满足消费者对<strong>环保、安全</strong>的普遍关切。
+              </p>
+            </article>
+            <article class="selling-point-card selling-point-card--ours">
+              <span class="selling-point-num">3</span>
+              <h3>客户触达能力</h3>
+              <p>
+                成品端可对接宜家、MUJI、小米商城等连锁渠道，配件端可赋能顾家、梦百合等品牌——<strong>双渠道布局</strong>有助于快速触达目标客群，缩短从立项到<strong>市场验证与推广</strong>的周期。
+              </p>
+            </article>
           </div>
-
-          <div class="market-block">
-            <h2>未来趋势研判</h2>
-            <div class="trend-grid">
-              <div class="trend-item">
-                <h3>渗透率加速提升</h3>
-                <p>国内智能床/垫渗透率仍处低位（约 5% 量级），对比成熟市场有明显差距；睡眠经济与 AI 技术成熟将推动品类从高端小众走向大众消费。</p>
-              </div>
-              <div class="trend-item">
-                <h3>从单品到生态</h3>
-                <p>智能床垫将与灯光、空调、窗帘、可穿戴设备联动，成为<strong>智能家居睡眠子系统</strong>的核心节点，而非孤立家具。</p>
-              </div>
-              <div class="trend-item">
-                <h3>供应链模块化</h3>
-                <p>品牌方更倾向于采购「智能芯材 + 算法」模块嵌入现有产品线，而非重资产自研产线——薄垫/配件形态契合 B 端升级需求。</p>
-              </div>
-              <div class="trend-item">
-                <h3>健康与服务化</h3>
-                <p>睡眠报告、慢病管理、适老监护等增值服务将抬高用户粘性与复购；床垫销售逐步叠加「睡眠健康管理」属性。</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="market-conclusion">
-            <h2>结论：智能睡眠是智能家居的必达场景</h2>
-            <p>
-              智能家居的本质，是让居住空间<strong>感知状态、理解需求、自动响应</strong>。其中，睡眠占据人生约三分之一时长，又直接影响日间认知、情绪与慢病风险——<strong>卧室几乎是智能家居中刚需最高、停留时间最长、健康关联最强的场景</strong>。
-            </p>
-            <p>
-              床垫演变已行至「主动智能」阶段：头部品牌集中发布 AI 床垫、国标《智能床》落地、资本与产学研持续加码。未来 5–10 年，不具备感知与调节能力的床垫将逐渐退居「基础款」；具备模块化智能芯材能力的企业，可同时切入<strong>C 端升级</strong>与<strong>B 端品牌赋能</strong>两条增长曲线。
-            </p>
-            <p>
-              本项目智能薄垫正处这一转折窗口：以气囊 + 海绵的可靠结构、双形态渠道设计与可控成本，承接「传统床垫智能化」与「家庭睡眠升级」的双重需求——<strong>智能睡眠不是智能家居的可选项，而是其最具确定性的落地方向之一</strong>。
-            </p>
-          </div>
-
-          <p class="background-sources">
-            趋势归纳参考：华经产业研究院智能床垫行业研究；慕思、喜临门、麒盛等公开年报与产品发布；国标 GB/T 45231-2025《智能床》；新华网、中国睡眠研究会相关公开报道。预测部分为项目研判，供内部讨论。
-          </p>
         </div>
       </section>
 
@@ -908,6 +767,30 @@
             <strong>产品定义：</strong>一张具备<strong>智能调节</strong>、<strong>睡眠监测</strong>能力的
             <strong>8–10 cm</strong> 海绵气囊薄垫。
           </p>
+
+          <div class="product-block">
+            <h2>目标售价</h2>
+            <p class="product-price-intro">
+              成品端价格体系（单位：元），以<strong>1.8 m 双人规格</strong>为基准测算；不同床宽 SKU 随 BOM 与渠道政策上下浮动。
+            </p>
+            <div class="product-price-grid">
+              <article class="product-price-card">
+                <span class="product-price-label">成本</span>
+                <p class="product-price-value">1 000 – 1 600</p>
+                <p class="product-price-note">BOM + 制造</p>
+              </article>
+              <article class="product-price-card">
+                <span class="product-price-label">出厂</span>
+                <p class="product-price-value">2 400 – 3 200</p>
+                <p class="product-price-note">出厂结算价</p>
+              </article>
+              <article class="product-price-card product-price-card--retail">
+                <span class="product-price-label">零售</span>
+                <p class="product-price-value">6 800 – 8 400</p>
+                <p class="product-price-note">连锁 / 电商终端指导价</p>
+              </article>
+            </div>
+          </div>
 
           <div class="product-block">
             <h2>产品功能</h2>
@@ -975,10 +858,10 @@
                     <td><strong>白天 / 普通模式 ≤50 dB(A)</strong><br>夜间 / 睡眠模式 ≤40 dB(A)</td>
                     <td>测试方法：安静环境下，使用分贝仪于<strong>距床垫 50 cm</strong>处测量。采用无刷电机驱动气泵，按工况分段调速：日间兼顾充气效率，夜间降速保压以压低噪声底噪。</td>
                   </tr>
-                  <tr class="product-param-row-fixed">
-                    <td>控制方式 <span class="param-tag param-tag-fixed">已定</span></td>
-                    <td><strong>机身按键</strong> + <strong>微信小程序</strong>（可扩展 App）</td>
-                    <td>支持本地快捷操作与远程场景调节；可预留遥控器、语音助手、智能家居平台（如米家）等接入。</td>
+                  <tr>
+                    <td>控制方式 <span class="param-tag param-tag-plan">待定</span></td>
+                    <td><strong>蓝牙靠近即连</strong> · <strong>微信小程序</strong></td>
+                    <td>手机靠近设备即可蓝牙连接与配网，<strong>无外置遥控器</strong>；支持场景调节与模式切换，可扩展 App。</td>
                   </tr>
                   <tr class="product-param-row-fixed">
                     <td>产品厚度 <span class="param-tag param-tag-fixed">已定</span></td>
@@ -993,20 +876,15 @@
                     </td>
                     <td>按床宽分 SKU，气囊布局与泵组功率随规格标定。</td>
                   </tr>
-                  <tr class="product-param-row-fixed">
-                    <td>整机重量 <span class="param-tag param-tag-fixed">已定</span></td>
-                    <td><strong>≤15 kg</strong></td>
-                    <td>各床宽规格均控制在此上限内，便于单人搬运与电商物流。</td>
-                  </tr>
-                  <tr class="product-param-row-fixed">
-                    <td>包装方式 <span class="param-tag param-tag-fixed">已定</span></td>
+                  <tr>
+                    <td>包装方式 <span class="param-tag param-tag-plan">待定</span></td>
                     <td><strong>压缩卷装</strong></td>
                     <td>入户后需用户或安装人员自行展开床垫并<strong>安装气盒</strong>（电控泵组模块），完成后再接入电源与 App 配网。</td>
                   </tr>
                   <tr class="product-param-row-fixed">
                     <td>电源 <span class="param-tag param-tag-fixed">已定</span></td>
-                    <td><strong>12 V / 5 A</strong> 或 <strong>24 V / 3 A</strong></td>
-                    <td>外置适配器供电，两档规格可选；需满足气泵峰值负载与电控模块稳定运行。</td>
+                    <td><strong>24 V / 3 A</strong></td>
+                    <td>外置适配器供电；需满足气泵峰值负载与电控模块稳定运行。</td>
                   </tr>
                   <tr>
                     <td>额定功率 <span class="param-tag param-tag-plan">规划</span></td>
@@ -1046,11 +924,11 @@
                   <tr>
                     <td>无线连接 <span class="param-tag param-tag-plan">规划</span></td>
                     <td>BLE 5.0；Wi-Fi 2.4 GHz</td>
-                    <td>小程序控制、固件 OTA 与睡眠数据上云。</td>
+                    <td>小程序控制与睡眠数据上云。</td>
                   </tr>
                   <tr>
                     <td>控制时延 <span class="param-tag param-tag-plan">规划</span></td>
-                    <td>本地按键 &lt;100 ms；小程序 &lt;800 ms</td>
+                    <td>小程序 &lt;800 ms</td>
                     <td>良好家庭网络下的远程操控体验指标。</td>
                   </tr>
                   <tr>
@@ -1060,7 +938,7 @@
                   </tr>
                   <tr class="product-param-row-fixed">
                     <td>泵组寿命 <span class="param-tag param-tag-fixed">已定</span></td>
-                    <td><strong>&gt;5 000 h</strong>（连续运行）</td>
+                    <td><strong>&gt;3 000 h</strong>（连续运行）</td>
                     <td>无刷气泵连续工况寿命指标，与降噪分段策略、质保政策协同设计。</td>
                   </tr>
                   <tr>
@@ -1075,8 +953,8 @@
                   </tr>
                   <tr>
                     <td>质保政策 <span class="param-tag param-tag-plan">规划</span></td>
-                    <td>整机 5 年；气囊等易损件单独质保条款</td>
-                    <td>与项目地图中成本与售后策略一致。</td>
+                    <td><strong>整机 3 年</strong></td>
+                    <td>配套 3 年质保方案，气囊易损件单独条款，成本与售后策略一致。</td>
                   </tr>
                 </tbody>
               </table>
@@ -1119,28 +997,7 @@
         </div>
       </section>
 
-      <div id="matrix-detail-modal" class="matrix-modal" hidden>
-        <div class="matrix-modal-backdrop" data-matrix-close></div>
-        <div class="matrix-modal-panel" role="dialog" aria-modal="true" aria-labelledby="matrix-modal-title">
-          <button type="button" class="matrix-modal-close" aria-label="关闭">×</button>
-          <img class="matrix-modal-img" src="" alt="" />
-          <h3 id="matrix-modal-title" class="matrix-modal-title"></h3>
-          <p class="matrix-modal-meta matrix-modal-comfort"></p>
-          <p class="matrix-modal-meta matrix-modal-price"></p>
-          <p class="matrix-modal-meta matrix-modal-hardness"></p>
-          <p class="matrix-modal-meta matrix-modal-source"></p>
-          <div class="matrix-modal-cols">
-            <div>
-              <h4>优点</h4>
-              <ul class="matrix-modal-pros"></ul>
-            </div>
-            <div>
-              <h4>缺点</h4>
-              <ul class="matrix-modal-cons"></ul>
-            </div>
-          </div>
-        </div>
-      </div>
+      
 
       <section id="model-section" class="content-card">
         <header class="section-header">
@@ -1165,72 +1022,82 @@
         </div>
       </section>
 
-      <section id="gallery-section"></section>
-
       <section id="sample-section"></section>
+
+      <section id="challenges-risks-section" class="content-card">
+        <header class="section-header">
+          <h1>挑战与风险</h1>
+          <p>立项需直面的技术挑战与市场风险</p>
+        </header>
+        <div class="challenges-risks-body">
+          <div class="product-block">
+            <h2 id="challenges-group">挑战</h2>
+            <div class="selling-points-grid">
+              <article id="challenge-algo-section" class="selling-point-card selling-point-card--challenge">
+                <span class="selling-point-num">1</span>
+                <h3>AI 算法 / 模型缺失，报告准确性待验证</h3>
+                <p>
+                  睡眠报告依赖压力时序、体动推断及后续扩展的<strong>鼾声识别</strong>等能力，但核心<strong> AI 算法与模型尚未自研落地</strong>，现阶段以规则与通用模型为主，<strong>分期、深睡时长、风险提醒等指标的准确性</strong>缺乏大规模真实卧室场景验证，直接影响用户对「智能」价值的感知。
+                </p>
+              </article>
+              <article id="challenge-noise-section" class="selling-point-card selling-point-card--challenge">
+                <span class="selling-point-num">2</span>
+                <h3>噪声控制：8 cm 薄垫内实现 ≤40 dB</h3>
+                <p>
+                  产品厚度仅 <strong>8–10 cm</strong>，需在有限空间内集成气泵、阀体与电控模块；夜间充放气工况下，运行噪声须满足产品定义 <strong>≤40 dB（A）</strong>（距床垫 50 cm）。薄垫结构<strong>减震、无刷电机选型、分段降速与气路布局</strong>均需同步优化，工程难度高于传统厚床垫或外置泵箱方案。
+                </p>
+              </article>
+            </div>
+          </div>
+
+          <div class="product-block">
+            <h2 id="risks-group">风险</h2>
+            <div class="selling-points-grid">
+              <article id="risk-trust-section" class="selling-point-card selling-point-card--risk">
+                <span class="selling-point-num">1</span>
+                <h3>消费者信任：睡眠健康提升是否可感知</h3>
+                <p>
+                  用户对智能睡具普遍持<strong>观望态度</strong>：「睡感变好」是否来自床垫本身？报告数据是否可信？行业亦缺乏大规模 RCT 背书。若体验与报告<strong>不能形成可感知的改善闭环</strong>，易被贴上「智商税」标签，影响复购与口碑传播。
+                </p>
+              </article>
+              <article id="risk-cost-section" class="selling-point-card selling-point-card--risk">
+                <span class="selling-point-num">2</span>
+                <h3>成本超标导致推广难度增大</h3>
+                <p>
+                  目标零售价 <strong>6 800–8 400 元</strong> 区间内，气囊、电控、云端与渠道费用叠加后<strong>BOM 与毛利压力</strong>显著。若成本管控不及预期，将压缩市场投入空间，在连锁与电商渠道中<strong>价格竞争力与推广力度</strong>同时承压，首年销售目标达成难度上升。
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section id="gantt-section" class="content-card">
         <header class="section-header">
           <h1>项目计划</h1>
-          <p>6 月 — 12 月 · 甘特图</p>
+          <p>7 月 — 次年 1 月 · WBS 甘特图（210 天）</p>
         </header>
         <div class="gantt-body">
           <p class="gantt-intro">
-            以下为本项目 2025 年下半年关键里程碑安排；7—9 月硬件打样与嵌入式开发并行推进，9 月起软件与云端同步迭代。<strong>点击进度条</strong>可查看子任务、预算、人员与里程碑详情。
+            计划依据 WBS 模板（Sheet3 · 薄垫 210 天）编制，涵盖启动、设计确认、结构打样、开模、最终样、样品测试、产品体验与项目收尾；<strong>嵌入式与云端</strong>与设计/开模阶段并行推进。<strong>点击进度条</strong>可查看 WBS 子任务、责任岗位与里程碑详情。
           </p>
           <div class="gantt-wrap">
-            <div class="gantt-chart" role="table" aria-label="项目计划甘特图，2025年6月至12月">
-              <div class="gantt-head" role="row">
-                <div class="gantt-corner" role="columnheader">任务</div>
-                <div class="gantt-month" role="columnheader">6 月</div>
-                <div class="gantt-month" role="columnheader">7 月</div>
-                <div class="gantt-month" role="columnheader">8 月</div>
-                <div class="gantt-month" role="columnheader">9 月</div>
-                <div class="gantt-month" role="columnheader">10 月</div>
-                <div class="gantt-month" role="columnheader">11 月</div>
-                <div class="gantt-month" role="columnheader">12 月</div>
-              </div>
-
-              <div class="gantt-row" role="row">
-                <div class="gantt-task" role="rowheader">结构与电路方案深化设计</div>
-                <div class="gantt-track" role="cell">
-                  <div class="gantt-grid-lines" aria-hidden="true"></div>
-                  <button type="button" class="gantt-bar gantt-bar-design" style="--start: 0; --span: 2" data-gantt-id="design" aria-label="查看任务详情：结构与电路方案深化设计，6–7 月，2 个月">6–7 月</button>
-                </div>
-              </div>
-
-              <div class="gantt-row" role="row">
-                <div class="gantt-task" role="rowheader">电路硬件和气囊打样以及样品测试</div>
-                <div class="gantt-track" role="cell">
-                  <div class="gantt-grid-lines" aria-hidden="true"></div>
-                  <button type="button" class="gantt-bar gantt-bar-hardware" style="--start: 2; --span: 2" data-gantt-id="hardware" aria-label="查看任务详情：电路硬件和气囊打样以及样品测试，8–9 月">8–9 月</button>
-                </div>
-              </div>
-
-              <div class="gantt-row" role="row">
-                <div class="gantt-task" role="rowheader">云后台和小程序开发</div>
-                <div class="gantt-track" role="cell">
-                  <div class="gantt-grid-lines" aria-hidden="true"></div>
-                  <button type="button" class="gantt-bar gantt-bar-cloud" style="--start: 4; --span: 2" data-gantt-id="cloud" aria-label="查看任务详情：云后台和小程序开发，10–11 月">10–11 月</button>
-                </div>
-              </div>
-
-              <div class="gantt-row" role="row">
-                <div class="gantt-task" role="rowheader">成品测试与发布</div>
-                <div class="gantt-track" role="cell">
-                  <div class="gantt-grid-lines" aria-hidden="true"></div>
-                  <button type="button" class="gantt-bar gantt-bar-release" style="--start: 6; --span: 1" data-gantt-id="release" aria-label="查看任务详情：成品测试与发布，12 月">12 月</button>
-                </div>
-              </div>
-            </div>
+            <div id="gantt-chart-root" aria-live="polite"></div>
           </div>
 
           <ul class="gantt-legend">
-            <li><span class="gantt-legend-swatch gantt-bar-design"></span>方案设计</li>
-            <li><span class="gantt-legend-swatch gantt-bar-hardware"></span>打样与样品测试</li>
-            <li><span class="gantt-legend-swatch gantt-bar-cloud"></span>云端 / 小程序</li>
-            <li><span class="gantt-legend-swatch gantt-bar-release"></span>测试发布</li>
+            <li><span class="gantt-legend-swatch gantt-bar-kickoff"></span>启动</li>
+            <li><span class="gantt-legend-swatch gantt-bar-design"></span>设计确认</li>
+            <li><span class="gantt-legend-swatch gantt-bar-prototype"></span>结构打样</li>
+            <li><span class="gantt-legend-swatch gantt-bar-mold"></span>开模</li>
+            <li><span class="gantt-legend-swatch gantt-bar-final"></span>最终样</li>
+            <li><span class="gantt-legend-swatch gantt-bar-lab"></span>样品测试</li>
+            <li><span class="gantt-legend-swatch gantt-bar-experience"></span>产品体验</li>
+            <li><span class="gantt-legend-swatch gantt-bar-release"></span>项目收尾</li>
+            <li><span class="gantt-legend-swatch gantt-bar-cloud"></span>嵌入式 / 云端（并行）</li>
           </ul>
+
+          <div id="gantt-summary-root" class="gantt-summary" aria-label="项目计划汇总统计"></div>
         </div>
       </section>
 
@@ -1241,7 +1108,7 @@
         </header>
         <div class="sales-forecast-body">
           <p class="sales-forecast-intro">
-            以下销售预计<strong>自开发完成并正式发布之日</strong>起算（对应项目计划 12 月成品测试与发布节点），覆盖发布后<strong>第一个完整销售年度</strong>。渠道布局与产品定义中的双形态销售目标一致：成品端面向连锁零售与电商单品销售，配件端面向床垫/家居品牌联合开发与渠道复用。
+            以下销售预计<strong>自开发完成并正式发布之日</strong>起算（对应项目计划次年 1 月结项发布节点），覆盖发布后<strong>第一个完整销售年度</strong>。渠道布局与产品定义中的双形态销售目标一致：成品端面向连锁零售与电商单品销售，配件端面向床垫/家居品牌联合开发与渠道复用。
           </p>
 
           <div class="sales-forecast-grid">
@@ -1318,8 +1185,6 @@
   </div>
 
   <script src="assets/config.js"></script>
-  <script src="assets/mattress-matrix.js"></script>
-  <script src="assets/mattress-history.js"></script>
   <script src="assets/social-topics.js"></script>
   <script>
     window.esmsInitOptions = { shimMode: true };
@@ -1341,13 +1206,12 @@
     })();
   </script>
   <script src="vendor/es-module-shims.js"></script>
+  <script src="js/sidebar-nav.js"></script>
   <script src="js/model-data.js"></script>
-  <script src="js/gallery.js"></script>
-  <script src="js/mattress-history.js"></script>
+  <script src="js/image-zoom.js"></script>
   <script src="js/social-topics.js"></script>
   <script src="assets/sample-showcase.js"></script>
   <script src="js/sample-showcase.js"></script>
-  <script src="js/mattress-matrix.js"></script>
   <script src="assets/gantt-plan.js"></script>
   <script src="js/gantt-plan.js"></script>
   <script src="js/viewer-boot.js"></script>
