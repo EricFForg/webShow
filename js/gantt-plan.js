@@ -144,7 +144,7 @@
       .map((id) => {
         const task = data.tasks[id];
         if (!task) return "";
-        const label = task.barLabel || "";
+        const label = String(task.durationDays ?? "");
         const parallel = task.id === "software" ? " gantt-row-parallel" : "";
         return `<div class="gantt-row${parallel}" role="row">
           <div class="gantt-task" role="rowheader">${escapeHtml(task.title)}</div>
