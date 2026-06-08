@@ -825,11 +825,336 @@ body.sidebar-collapsed .main-content {
   color: var(--text);
 }
 
+/* Sleep cycle — scroll-scrubbed curve (sticky needs visible overflow on ancestor) */
+#sleep-cycle-section {
+  overflow: visible;
+}
+
+.sleep-cycle-body {
+  padding: 1.5rem;
+}
+
+.sleep-cycle-block {
+  --sc-bg: #0c1218;
+  --sc-glow: #fbbf24;
+  margin-top: 0;
+  padding: 2rem 1.75rem 1.5rem;
+  border-radius: calc(var(--radius) + 6px);
+  border: 1px solid #1e2a36;
+  background: radial-gradient(ellipse 120% 80% at 50% -20%, #1a2838 0%, var(--sc-bg) 55%);
+  color: #e8eef4;
+  box-shadow: 0 16px 48px rgba(8, 12, 18, 0.45);
+}
+
+#sleep-cycle-section[data-active-phase="wind"] {
+  --sc-glow: #fbbf24;
+}
+
+#sleep-cycle-section[data-active-phase="drowse"] {
+  --sc-glow: #818cf8;
+}
+
+#sleep-cycle-section[data-active-phase="deep"] {
+  --sc-glow: #3b82f6;
+}
+
+#sleep-cycle-section[data-active-phase="rem"] {
+  --sc-glow: #a78bfa;
+}
+
+#sleep-cycle-section[data-active-phase="wake"] {
+  --sc-glow: #fb923c;
+}
+
+.sleep-cycle-header {
+  max-width: 40rem;
+  margin-bottom: 1.5rem;
+}
+
+.sleep-cycle-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8ab4d4;
+  margin-bottom: 0.55rem;
+}
+
+.sleep-cycle-title {
+  font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.sleep-cycle-lead {
+  font-size: 0.9rem;
+  line-height: 1.85;
+  color: #94a8bc;
+  margin: 0;
+}
+
+.sleep-cycle-lead strong {
+  color: #d8e6f2;
+  font-weight: 600;
+}
+
+/* Scroll-scrubbed curve timeline (wheel captured in curve zone) */
+.sleep-cycle-scroll-track {
+  margin: 0 -0.25rem;
+  position: relative;
+}
+
+.sleep-cycle-pin {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5rem 0 1.5rem;
+}
+
+.sleep-cycle-scroll-hint {
+  position: absolute;
+  top: 0.25rem;
+  right: 0;
+  margin: 0;
+  font-size: 0.72rem;
+  color: #6b849c;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  opacity: calc(1 - var(--sleep-progress, 0) * 2);
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.sleep-cycle-scroll-hint-icon {
+  animation: sleep-cycle-bounce 1.6s ease-in-out infinite;
+}
+
+@keyframes sleep-cycle-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+.sleep-cycle-stage {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1.5rem 2rem;
+  align-items: stretch;
+}
+
+.sleep-cycle-curve-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.75rem 0.5rem 0.25rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  cursor: ns-resize;
+  overscroll-behavior: contain;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  box-sizing: border-box;
+}
+
+.sleep-cycle-curve-wrap:hover,
+.sleep-cycle-curve-wrap:focus-visible,
+.sleep-cycle-stage.is-scrubbing .sleep-cycle-curve-wrap {
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.sleep-cycle-curve {
+  display: block;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: visible;
+}
+
+.sleep-cycle-path-bg {
+  stroke: rgba(255, 255, 255, 0.12);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.sleep-cycle-path-active {
+  stroke: url(#sleep-cycle-grad);
+  stroke-width: 4;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.35));
+}
+
+.sleep-cycle-ticks circle {
+  fill: rgba(255, 255, 255, 0.35);
+}
+
+.sleep-cycle-time-labels text {
+  fill: #6b849c;
+  font-size: 11px;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.sleep-cycle-marker {
+  fill: #fff;
+  stroke: var(--sc-glow);
+  stroke-width: 3;
+  filter: drop-shadow(0 0 10px var(--sc-glow));
+  transition: stroke 0.35s ease;
+}
+
+.sleep-cycle-marker-glow {
+  fill: var(--sc-glow);
+  opacity: 0.28;
+  transition: fill 0.35s ease;
+}
+
+.sleep-cycle-readout {
+  padding: 0.25rem 0 0.25rem 0.5rem;
+  border-left: 2px solid var(--sc-glow);
+  transition: border-color 0.4s ease;
+  min-height: 21.5rem;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.sleep-cycle-clock {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-bottom: 0.65rem;
+}
+
+.sleep-cycle-clock-time {
+  font-size: clamp(2.5rem, 5.5vw, 3.75rem);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+
+.sleep-cycle-clock-meridiem {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #6b849c;
+  letter-spacing: 0.06em;
+}
+
+.sleep-cycle-night-title {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #8aa4bc;
+  margin: 0 0 0.75rem;
+}
+
+.sleep-cycle-phase-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sc-glow);
+  margin: 0 0 0.35rem;
+  transition: color 0.35s ease;
+}
+
+.sleep-cycle-phase-range {
+  font-size: 0.78rem;
+  color: #5c7388;
+  margin: 0 0 0.85rem;
+}
+
+.sleep-cycle-phase-title {
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  color: #fff;
+  margin: 0 0 0.65rem;
+  min-height: 2.75em;
+}
+
+.sleep-cycle-phase-desc {
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: #9cb0c4;
+  margin: 0;
+  max-width: 28rem;
+  min-height: 7.2em;
+}
+
+.sleep-cycle-note {
+  margin: 0.5rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.78rem;
+  line-height: 1.65;
+  color: #5c7388;
+}
+
+@media (max-width: 900px) {
+  .sleep-cycle-stage {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .sleep-cycle-curve-wrap {
+    height: auto;
+    min-height: 14rem;
+  }
+
+  .sleep-cycle-curve {
+    flex: none;
+    height: auto;
+  }
+
+  .sleep-cycle-readout {
+    border-left: none;
+    border-top: 2px solid var(--sc-glow);
+    padding: 1rem 0 0;
+    height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .sleep-cycle-block {
+    padding: 1.35rem 1rem 1rem;
+  }
+
+  .sleep-cycle-clock-time {
+    font-size: 2.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sleep-cycle-scroll-hint-icon {
+    animation: none;
+  }
+
+  .sleep-cycle-marker,
+  .sleep-cycle-marker-glow,
+  .sleep-cycle-readout {
+    transition: none;
+  }
+}
+
 /* SKU competition map */
-.sku-map-block {
-  margin-top: 2rem;
-  padding-top: 1.75rem;
-  border-top: 1px solid var(--border);
+.sku-competition-body {
+  padding: 1.5rem;
 }
 
 .sku-map-intro {

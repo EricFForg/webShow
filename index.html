@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>智能薄垫-立项思考</title>
-  <link rel="stylesheet" href="css/style.css?v=3" />
+  <link rel="stylesheet" href="css/style.css?v=11" />
 </head>
 <body>
   <header class="site-header">
@@ -50,7 +50,8 @@
             <div id="nav-tree-how" class="nav-tree-children nav-tree-leaves">
               <a href="#audience-section" class="nav-link nav-tree-leaf">场景分析</a>
               <a href="#selling-points-section" class="nav-link nav-tree-leaf">核心卖点</a>
-              <a href="#sku-competition-map" class="nav-link nav-tree-leaf">竞品坐标</a>
+              <a href="#sleep-cycle-section" class="nav-link nav-tree-leaf">睡眠周期</a>
+              <a href="#sku-competition-section" class="nav-link nav-tree-leaf">竞品坐标</a>
               <a href="#our-advantages-section" class="nav-link nav-tree-leaf">我们的优势</a>
             </div>
           </details>
@@ -660,7 +661,7 @@
       <section id="selling-points-section" class="content-card">
         <header class="section-header">
           <h1>核心卖点</h1>
-          <p>三项核心价值 · 竞品坐标 · 对应场景分析中的六类目标用户</p>
+          <p>三项核心价值 · 对应场景分析中的六类目标用户</p>
         </header>
         <div class="selling-points-body">
           <p class="selling-points-intro">
@@ -720,39 +721,111 @@
               </div>
             </article>
           </div>
+        </div>
+      </section>
 
-          <div class="product-block sku-map-block">
-            <h2 id="sku-competition-map">5000–12000 元价位竞品坐标</h2>
-            <p class="sku-map-intro">
-              在 <strong>5 000–12 000 元</strong> 价格带，综合<strong>京东、天猫、苏宁</strong>公开榜单与品牌战报梳理销量参考<strong>前二十</strong> SKU。
-              每个圆点为对应商品页<strong>主图</strong>（本地缓存于 <code>images/sku-competition/</code>，与商品链接一一对应）。
-              横轴 <strong>智能等级</strong>、纵轴 <strong>护脊等级</strong> 采用 1–4 连续坐标（档内偏移 + 防重叠排布）；<strong>点击查看基本信息</strong>。
-            </p>
-            <div class="matrix-layout sku-map-layout">
-              <div id="sku-competition-chart" class="matrix-chart sku-map-chart" aria-label="床垫竞品智能护脊坐标图"></div>
-              <aside class="sku-map-legend" aria-label="坐标轴说明">
-                <h3 class="sku-map-legend-title">坐标说明</h3>
-                <div class="sku-map-legend-block">
-                  <h4>智能等级（X 轴）</h4>
-                  <ol class="sku-map-legend-list">
-                    <li><strong>1 · 无</strong> — 无传感、无调节</li>
-                    <li><strong>2 · 电动抬升</strong> — 床架电动，床垫非智能</li>
-                    <li><strong>3 · 智能软硬度</strong> — 感知 + 分区调节</li>
-                    <li><strong>4 · AI + 报告</strong> — 算法调节 + 睡眠报告</li>
-                  </ol>
+      <section id="sleep-cycle-section" class="content-card sleep-cycle-section-card" data-active-phase="wind">
+        <header class="section-header">
+          <h1>睡眠周期</h1>
+          <p>薄垫与你同频，按整夜时段自动切换气囊策略</p>
+        </header>
+        <div class="sleep-cycle-body">
+          <div class="sleep-cycle-block">
+            <header class="sleep-cycle-header">
+              <p class="sleep-cycle-eyebrow">Sleep cycles</p>
+              <h2 class="sleep-cycle-title">薄垫与你同频，而非对抗你的身体</h2>
+              <p class="sleep-cycle-lead">
+                睡眠并非静态——智能薄垫按整夜时段自动切换气囊策略。将鼠标移到<strong>曲线区域</strong>，滚动滚轮即可沿一夜曲线切换时间（页面不会跟着滚动）。
+              </p>
+            </header>
+
+            <div class="sleep-cycle-scroll-track" id="sleep-cycle-scroll-track">
+              <div class="sleep-cycle-pin">
+                <p class="sleep-cycle-scroll-hint" aria-hidden="true">
+                  <span class="sleep-cycle-scroll-hint-icon">◎</span> 在曲线区域滚动滚轮
+                </p>
+
+                <div class="sleep-cycle-stage" id="sleep-cycle-stage">
+                  <div class="sleep-cycle-curve-wrap" id="sleep-cycle-curve-wrap" tabindex="0" role="application" aria-label="一夜时间曲线，在此区域滚动滚轮切换时段">
+                    <svg class="sleep-cycle-curve" viewBox="0 0 800 420" preserveAspectRatio="xMidYMid meet" role="img" aria-label="20:00 至次日 09:00 睡眠曲线时间轴">
+                      <defs>
+                        <linearGradient id="sleep-cycle-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stop-color="#fbbf24" />
+                          <stop offset="18%" stop-color="#a5b4fc" />
+                          <stop offset="45%" stop-color="#3b82f6" />
+                          <stop offset="72%" stop-color="#a78bfa" />
+                          <stop offset="100%" stop-color="#fb923c" />
+                        </linearGradient>
+                      </defs>
+                      <path class="sleep-cycle-path-bg" id="sleep-cycle-path-bg" fill="none" />
+                      <path class="sleep-cycle-path-active" id="sleep-cycle-path-active" fill="none" />
+                      <g class="sleep-cycle-ticks" aria-hidden="true"></g>
+                      <g class="sleep-cycle-time-labels" aria-hidden="true"></g>
+                      <circle class="sleep-cycle-marker" id="sleep-cycle-marker" r="10" cx="48" cy="228" />
+                      <circle class="sleep-cycle-marker-glow" id="sleep-cycle-marker-glow" r="18" cx="48" cy="228" />
+                    </svg>
+                  </div>
+
+                  <div class="sleep-cycle-readout" aria-live="polite">
+                    <div class="sleep-cycle-clock">
+                      <time class="sleep-cycle-clock-time" id="sleep-cycle-clock-time" datetime="20:00">20:00</time>
+                      <span class="sleep-cycle-clock-meridiem" id="sleep-cycle-clock-meridiem">PM</span>
+                    </div>
+                    <h3 class="sleep-cycle-night-title">一夜在智能薄垫上</h3>
+                    <p class="sleep-cycle-phase-tag" id="sleep-cycle-phase-tag">放松释压</p>
+                    <p class="sleep-cycle-phase-range" id="sleep-cycle-phase-range">20:00 – 22:00</p>
+                    <h4 class="sleep-cycle-phase-title" id="sleep-cycle-phase-title">气囊轻微起伏，舒缓身体压力</h4>
+                    <p class="sleep-cycle-phase-desc" id="sleep-cycle-phase-desc">
+                      上床后进入预睡眠模式：各分区气囊以低幅度、低频率缓慢起伏，帮助肩背与臀部释压。电机运行于睡眠模式噪声限值内（&lt;30 dB(A)）。
+                    </p>
+                  </div>
                 </div>
-                <div class="sku-map-legend-block">
-                  <h4>护脊等级（Y 轴）</h4>
-                  <ol class="sku-map-legend-list">
-                    <li><strong>1 · 无分区</strong> — 整垫统一软硬度</li>
-                    <li><strong>2 · 分区</strong> — 出厂固定分区</li>
-                    <li><strong>3 · 分区可调</strong> — 手动 / App 设定</li>
-                    <li><strong>4 · 自适应</strong> — 随睡姿自动调节</li>
-                  </ol>
-                </div>
-                <p class="sku-map-legend-note">蓝色高亮圆点为本项目<strong>智能薄垫</strong>立项占位。</p>
-              </aside>
+              </div>
             </div>
+
+            <p class="sleep-cycle-note">
+              以上时段与策略为<strong>立项规划逻辑</strong>，实际分期识别与切换规则需在算法与真实卧室场景中标定；睡眠监测与报告功能<strong>非医疗诊断</strong>。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="sku-competition-section" class="content-card">
+        <header class="section-header">
+          <h1>竞品坐标</h1>
+          <p>主流电商热销床垫智能等级 × 护脊等级分布</p>
+        </header>
+        <div class="sku-competition-body">
+          <p class="sku-map-intro">
+            综合<strong>京东、天猫、苏宁</strong>公开榜单与品牌战报梳理销量参考<strong>前二十</strong> SKU（多为<strong>千元档</strong>走量款，慕思等部分品牌款券后约 3500–4500 元）。
+            参考价为各链接规格下<strong>平台活动到手价</strong>（非页面划线价），随大促 / 国补波动。
+            每个圆点为对应商品页<strong>主图</strong>（本地缓存于 <code>images/sku-competition/</code>，与商品链接一一对应）。
+            横轴 <strong>智能等级</strong>、纵轴 <strong>护脊等级</strong> 采用 1–4 连续坐标（档内偏移 + 防重叠排布）；<strong>点击查看基本信息</strong>。
+          </p>
+          <div class="matrix-layout sku-map-layout">
+            <div id="sku-competition-chart" class="matrix-chart sku-map-chart" aria-label="床垫竞品智能护脊坐标图"></div>
+            <aside class="sku-map-legend" aria-label="坐标轴说明">
+              <h3 class="sku-map-legend-title">坐标说明</h3>
+              <div class="sku-map-legend-block">
+                <h4>智能等级（X 轴）</h4>
+                <ol class="sku-map-legend-list">
+                  <li><strong>1 · 无</strong> — 无传感、无调节</li>
+                  <li><strong>2 · 电动抬升</strong> — 床架电动，床垫非智能</li>
+                  <li><strong>3 · 智能软硬度</strong> — 感知 + 分区调节</li>
+                  <li><strong>4 · AI + 报告</strong> — 算法调节 + 睡眠报告</li>
+                </ol>
+              </div>
+              <div class="sku-map-legend-block">
+                <h4>护脊等级（Y 轴）</h4>
+                <ol class="sku-map-legend-list">
+                  <li><strong>1 · 无分区</strong> — 整垫统一软硬度</li>
+                  <li><strong>2 · 分区</strong> — 出厂固定分区</li>
+                  <li><strong>3 · 分区可调</strong> — 手动 / App 设定</li>
+                  <li><strong>4 · 自适应</strong> — 随睡姿自动调节</li>
+                </ol>
+              </div>
+              <p class="sku-map-legend-note">蓝色高亮圆点为本项目<strong>智能薄垫</strong>立项占位。</p>
+            </aside>
           </div>
         </div>
       </section>
@@ -1524,8 +1597,9 @@
   <script src="js/sample-showcase.js"></script>
   <script src="assets/gantt-plan.js"></script>
   <script src="js/gantt-plan.js"></script>
-  <script src="assets/sku-competition-map.js?v=2"></script>
-  <script src="js/sku-competition-map.js?v=2"></script>
+  <script src="assets/sku-competition-map.js?v=4"></script>
+  <script src="js/sleep-cycle.js?v=5"></script>
+  <script src="js/sku-competition-map.js?v=3"></script>
   <script src="js/viewer-boot.js?v=3"></script>
 </body>
 </html>

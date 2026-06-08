@@ -77,7 +77,7 @@
     const spineToY = (s) => pad.top + (1 - scoreToRatio(s, spineMin, spineMax)) * plotH;
 
     const svgParts = [
-      `<svg class="matrix-svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img" aria-label="5000至12000元床垫竞品智能与护脊坐标图">`,
+      `<svg class="matrix-svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img" aria-label="主流电商热销床垫竞品智能与护脊坐标图">`,
     ];
 
     for (let i = smartMin; i <= smartMax; i++) {
@@ -174,7 +174,7 @@
     imgEl.alt = item.name;
 
     modalEl.querySelector(".matrix-modal-title").textContent = `#${item.rank} · ${item.brand} ${item.name}`;
-    modalEl.querySelector(".sku-map-modal-rank").textContent = `销量排序：第 ${item.rank} 位（${config.priceMin.toLocaleString()}–${config.priceMax.toLocaleString()} 元档）`;
+    modalEl.querySelector(".sku-map-modal-rank").textContent = `销量排序：第 ${item.rank} 位（参考到手价 ¥${config.priceMin.toLocaleString()}–${config.priceMax.toLocaleString()} 区间）`;
     modalEl.querySelector(".sku-map-modal-price").textContent = `参考价：¥${item.price.toLocaleString()}（${item.priceNote || "主流规格"}）`;
     modalEl.querySelector(".sku-map-modal-platform").textContent = `采集平台：${item.platform}`;
     modalEl.querySelector(".sku-map-modal-sales").textContent = item.salesNote || "—";
