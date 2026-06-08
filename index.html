@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>智能薄垫-立项思考</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=3" />
 </head>
 <body>
   <header class="site-header">
@@ -50,6 +50,7 @@
             <div id="nav-tree-how" class="nav-tree-children nav-tree-leaves">
               <a href="#audience-section" class="nav-link nav-tree-leaf">场景分析</a>
               <a href="#selling-points-section" class="nav-link nav-tree-leaf">核心卖点</a>
+              <a href="#sku-competition-map" class="nav-link nav-tree-leaf">竞品坐标</a>
               <a href="#our-advantages-section" class="nav-link nav-tree-leaf">我们的优势</a>
             </div>
           </details>
@@ -659,7 +660,7 @@
       <section id="selling-points-section" class="content-card">
         <header class="section-header">
           <h1>核心卖点</h1>
-          <p>三项核心价值 · 对应场景分析中的六类目标用户</p>
+          <p>三项核心价值 · 竞品坐标 · 对应场景分析中的六类目标用户</p>
         </header>
         <div class="selling-points-body">
           <p class="selling-points-intro">
@@ -719,8 +720,61 @@
               </div>
             </article>
           </div>
+
+          <div class="product-block sku-map-block">
+            <h2 id="sku-competition-map">5000–12000 元价位竞品坐标</h2>
+            <p class="sku-map-intro">
+              在 <strong>5 000–12 000 元</strong> 价格带，综合<strong>京东、天猫、苏宁</strong>公开榜单与品牌战报梳理销量参考<strong>前二十</strong> SKU。
+              每个圆点为对应商品页<strong>主图</strong>（本地缓存于 <code>images/sku-competition/</code>，与商品链接一一对应）。
+              横轴 <strong>智能等级</strong>、纵轴 <strong>护脊等级</strong> 采用 1–4 连续坐标（档内偏移 + 防重叠排布）；<strong>点击查看基本信息</strong>。
+            </p>
+            <div class="matrix-layout sku-map-layout">
+              <div id="sku-competition-chart" class="matrix-chart sku-map-chart" aria-label="床垫竞品智能护脊坐标图"></div>
+              <aside class="sku-map-legend" aria-label="坐标轴说明">
+                <h3 class="sku-map-legend-title">坐标说明</h3>
+                <div class="sku-map-legend-block">
+                  <h4>智能等级（X 轴）</h4>
+                  <ol class="sku-map-legend-list">
+                    <li><strong>1 · 无</strong> — 无传感、无调节</li>
+                    <li><strong>2 · 电动抬升</strong> — 床架电动，床垫非智能</li>
+                    <li><strong>3 · 智能软硬度</strong> — 感知 + 分区调节</li>
+                    <li><strong>4 · AI + 报告</strong> — 算法调节 + 睡眠报告</li>
+                  </ol>
+                </div>
+                <div class="sku-map-legend-block">
+                  <h4>护脊等级（Y 轴）</h4>
+                  <ol class="sku-map-legend-list">
+                    <li><strong>1 · 无分区</strong> — 整垫统一软硬度</li>
+                    <li><strong>2 · 分区</strong> — 出厂固定分区</li>
+                    <li><strong>3 · 分区可调</strong> — 手动 / App 设定</li>
+                    <li><strong>4 · 自适应</strong> — 随睡姿自动调节</li>
+                  </ol>
+                </div>
+                <p class="sku-map-legend-note">蓝色高亮圆点为本项目<strong>智能薄垫</strong>立项占位。</p>
+              </aside>
+            </div>
+          </div>
         </div>
       </section>
+
+      <div id="sku-map-detail-modal" class="matrix-modal sku-map-modal" hidden>
+        <div class="matrix-modal-backdrop" data-sku-map-close></div>
+        <div class="matrix-modal-panel" role="dialog" aria-modal="true" aria-labelledby="sku-map-modal-title">
+          <button type="button" class="matrix-modal-close" aria-label="关闭">×</button>
+          <img class="matrix-modal-img" src="" alt="" />
+          <h3 id="sku-map-modal-title" class="matrix-modal-title"></h3>
+          <div class="matrix-modal-meta sku-map-modal-meta">
+            <p class="sku-map-modal-rank"></p>
+            <p class="sku-map-modal-price"></p>
+            <p class="sku-map-modal-platform"></p>
+            <p class="sku-map-modal-sales"></p>
+            <p class="sku-map-modal-smart"></p>
+            <p class="sku-map-modal-spine"></p>
+            <p class="sku-map-modal-specs"></p>
+            <p class="sku-map-modal-link-wrap"><a class="sku-map-modal-link" href="#" target="_blank" rel="noopener"></a></p>
+          </div>
+        </div>
+      </div>
 
       <section id="our-advantages-section" class="content-card">
         <header class="section-header">
@@ -757,7 +811,7 @@
       <section id="product-section" class="content-card">
         <header class="section-header">
           <h1>产品定义</h1>
-          <p>产品形态 · 核心功能 · 关键参数 · 双渠道销售目标</p>
+          <p>产品形态 · 核心功能 · 关键参数</p>
         </header>
         <div class="product-body">
           <p class="product-spec">
@@ -837,23 +891,27 @@
           <div class="product-block">
             <h2>产品参数</h2>
             <p class="product-params-intro">
-              下表汇总可量化指标：<span class="param-tag param-tag-fixed">已定</span>为当前设计目标；
-              <span class="param-tag param-tag-plan">规划</span>为研发与认证对标建议值，可在联调阶段按渠道要求微调。
+              <strong>目标指标</strong>列以现行国标 / 行标限值为准（GB/T 46272-2025、QB/T 1952.2、GB 18401、GB 4706 等），对应下方「测试项」送检判定。
+              <span class="param-tag param-tag-fixed">已定</span>为产品结构 / SKU 等设计规格（标准无统一量化要求）；
+              <span class="param-tag param-tag-plan">规划</span>为上市方案待定项。
             </p>
             <div class="product-params-wrap">
               <table class="product-params-table">
                 <thead>
                   <tr>
                     <th scope="col">参数项</th>
-                    <th scope="col">目标指标</th>
+                    <th scope="col">目标指标（国标）</th>
                     <th scope="col">说明</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="product-param-row-fixed">
-                    <td>运行噪声 <span class="param-tag param-tag-fixed">已定</span></td>
-                    <td><strong>白天 / 普通模式 ≤50 dB(A)</strong><br>夜间 / 睡眠模式 ≤40 dB(A)</td>
-                    <td>测试方法：安静环境下，使用分贝仪于<strong>距床垫 50 cm</strong>处测量。采用无刷电机驱动气泵，按工况分段调速：日间兼顾充气效率，夜间降速保压以压低噪声底噪。</td>
+                  <tr>
+                    <td>运行噪声 <span class="param-tag param-tag-std">国标</span></td>
+                    <td>
+                      <strong>工作状态 ≤55 dB(A)</strong><br>
+                      <strong>睡眠模式 &lt;30 dB(A)</strong>
+                    </td>
+                    <td>GB/T 46272-2025。按标准试验方法在规定测点布置分贝仪。对应测试项「运行噪声」。</td>
                   </tr>
                   <tr>
                     <td>控制方式 <span class="param-tag param-tag-plan">待定</span></td>
@@ -864,6 +922,22 @@
                     <td>产品厚度 <span class="param-tag param-tag-fixed">已定</span></td>
                     <td><strong>8–10 cm</strong></td>
                     <td>叠放于现有床垫之上，不更换床架即可升级。</td>
+                  </tr>
+                  <tr>
+                    <td>接触材料安全 <span class="param-tag param-tag-std">国标</span></td>
+                    <td>
+                      <strong>GB 18401 B 类</strong>：甲醛 ≤75 mg/kg；可分解致癌芳香胺染料<strong>不得检出</strong>；pH 4.0–8.5<br>
+                      <strong>QB/T 1952.2</strong>：甲醛释放量 ≤0.05 mg/(m²·h)（24 h 舱法，合格品）
+                    </td>
+                    <td>面布 / 底布及复合层送检；优等品可按 QB/T 1952.2-2023 收紧至 ≤0.03 mg/(m²·h)。对应测试项「有害物质与 VOC」。</td>
+                  </tr>
+                  <tr>
+                    <td>燃烧阻燃 <span class="param-tag param-tag-std">国标</span></td>
+                    <td>
+                      通过 <strong>GB 17927.1</strong> 阴燃香烟试验<br>
+                      符合 GB/T 46272-2025 阻燃性能基本要求
+                    </td>
+                    <td>铺垫面及填充物按 QB/T 1952.2 与 GB/T 8624 型式试验判定。对应测试项「燃烧性能」。</td>
                   </tr>
                   <tr class="product-param-row-fixed">
                     <td>适配床宽 <span class="param-tag param-tag-fixed">已定</span></td>
@@ -884,19 +958,17 @@
                     <td>外置适配器供电；需满足气泵峰值负载与电控模块稳定运行。</td>
                   </tr>
                   <tr>
-                    <td>额定功率 <span class="param-tag param-tag-plan">规划</span></td>
-                    <td>≤60 W（多区同时充气峰值工况）</td>
-                    <td>与家用插座及延长线安全余量匹配。</td>
+                    <td>输入功率与温升 <span class="param-tag param-tag-std">国标</span></td>
+                    <td>标称输入功率下温升、异常工况符合 <strong>GB 4706.1</strong> 规定</td>
+                    <td>24 V 适配器与泵组在额定及峰值充气工况下不得超温。对应测试项「电气安全」「待机与能效」。</td>
                   </tr>
                   <tr>
-                    <td>待机功耗 <span class="param-tag param-tag-plan">规划</span></td>
-                    <td>≤1 W</td>
-                    <td>睡眠模式下仅维持传感与通信，气泵间歇工作。</td>
-                  </tr>
-                  <tr>
-                    <td>充/泄压响应 <span class="param-tag param-tag-plan">规划</span></td>
-                    <td>单区常压 → 目标压 ≤25 s</td>
-                    <td>翻身、止鼾抬升等场景下的体感响应速度。</td>
+                    <td>智能调节与运行速度 <span class="param-tag param-tag-std">国标</span></td>
+                    <td>
+                      具备<strong>自适应或个性化定制调节</strong>能力<br>
+                      运行装置速度 <strong>≤50 mm/s</strong>
+                    </td>
+                    <td>GB/T 46272-2025。分区充泄压、止鼾抬升等须在标准试验方法下验证调节功能与运行速度。对应测试项「智能感知与调节」。</td>
                   </tr>
                   <tr class="product-param-row-fixed">
                     <td>气囊分区 <span class="param-tag param-tag-fixed">已定</span></td>
@@ -909,44 +981,86 @@
                     <td>各分区独立调节的工作压区间；负向泄压、正向充气均在范围内闭环控制。</td>
                   </tr>
                   <tr>
-                    <td>气密保持 <span class="param-tag param-tag-plan">规划</span></td>
+                    <td>气密保持 <span class="param-tag param-tag-plan">内控</span></td>
                     <td>24 h 静态压降 ≤5%（基准压）</td>
-                    <td>阀体、管路及 TPU 气囊工艺一致性指标。</td>
+                    <td>国标无统一量化要求；企业内控指标，送检按测试项「气密保持」方法验证。阀体、管路及 TPU 气囊工艺一致性。</td>
                   </tr>
                   <tr>
-                    <td>睡姿 / 体动识别 <span class="param-tag param-tag-plan">规划</span></td>
-                    <td>准确率 ≥85%（实验室标定工况）</td>
-                    <td>算法迭代目标，用于自动调压与报告可信度。</td>
+                    <td>滚压耐久 <span class="param-tag param-tag-std">国标</span></td>
+                    <td>
+                      睡眠区滚筒耐久 <strong>≥60 000 次</strong>（优等品，QB/T 1952.2）<br>
+                      高度损失率 <strong>≤10%</strong>；试验后面料 / 缝边无破损、无移位
+                    </td>
+                    <td>QB/T 1952.2-2023；边部耐久 ≥8 000 次（优等品）。对应测试项「滚压耐久」。</td>
+                  </tr>
+                  <tr>
+                    <td>铺垫面力学 <span class="param-tag param-tag-std">国标</span></td>
+                    <td>
+                      耐久后垫面高度 <strong>≥90%</strong> 初始高度<br>
+                      硬度等级变化 <strong>≤1</strong> 级；非慢回弹铺垫料回弹率 <strong>≥35%</strong>
+                    </td>
+                    <td>QB/T 1952.2-2023。硬度分布、平整度按标准试验方法判定。对应测试项「铺垫面力学」。</td>
+                  </tr>
+                  <tr>
+                    <td>智能感知与调压 <span class="param-tag param-tag-std">国标</span></td>
+                    <td>压力感知、睡姿 / 体动识别、分区调压响应与稳态误差<strong>符合 GB/T 46272-2025 规定</strong></td>
+                    <td>按标准第 6 章及附录试验方法逐项送检，不做企业自定替代限值。对应测试项「智能感知与调节」。</td>
                   </tr>
                   <tr>
                     <td>无线连接 <span class="param-tag param-tag-plan">规划</span></td>
                     <td>BLE 5.0；Wi-Fi 2.4 GHz</td>
-                    <td>小程序控制与睡眠数据上云。</td>
+                    <td>小程序控制与睡眠数据上云；含 Wi-Fi 模块时须 SRRC 型号核准。</td>
                   </tr>
                   <tr>
-                    <td>控制时延 <span class="param-tag param-tag-plan">规划</span></td>
+                    <td>智能交互 <span class="param-tag param-tag-std">国标</span></td>
+                    <td>
+                      具备<strong>远程控制、提示、异常报警、语音交互</strong>能力<br>
+                      模式切换与执行结果<strong>符合 GB/T 46272-2025 规定</strong>
+                    </td>
+                    <td>小程序 / 蓝牙为产品实现方式；语音交互方案须在实施日前落实。对应测试项「交互与执行可靠性」。</td>
+                  </tr>
+                  <tr>
+                    <td>控制时延 <span class="param-tag param-tag-plan">内控</span></td>
                     <td>小程序 &lt;800 ms</td>
-                    <td>良好家庭网络下的远程操控体验指标。</td>
+                    <td>国标无定量要求；良好家庭网络下的体验内控目标。</td>
                   </tr>
                   <tr>
                     <td>睡眠报告 <span class="param-tag param-tag-plan">规划</span></td>
                     <td>次日 8:00 前生成；含体动、分期、呼吸/心率趋势</td>
                     <td>云端聚合，支持周/月趋势与异常提醒（规划）。</td>
                   </tr>
-                  <tr class="product-param-row-fixed">
-                    <td>泵组寿命 <span class="param-tag param-tag-fixed">已定</span></td>
-                    <td><strong>&gt;3 000 h</strong>（连续运行）</td>
-                    <td>无刷气泵连续工况寿命指标，与降噪分段策略、质保政策协同设计。</td>
+                  <tr>
+                    <td>心率 / 呼吸监测 <span class="param-tag param-tag-std">国标</span></td>
+                    <td>心率、呼吸率测量误差各 <strong>≤±5 次/分钟</strong></td>
+                    <td>GB/T 46272-2025。具备健康监测功能时按标准试验方法验证。对应睡眠报告与风险警示功能。</td>
                   </tr>
                   <tr>
-                    <td>使用环境 <span class="param-tag param-tag-plan">规划</span></td>
-                    <td>0–40 ℃；相对湿度 10–85%（无凝露）</td>
-                    <td>卧室常规工况；泵箱需通风散热。</td>
+                    <td>泵组耐久 <span class="param-tag param-tag-std">国标</span></td>
+                    <td>符合 <strong>GB 4706.7</strong> 异常运行、耐久与过热保护要求</td>
+                    <td>气泵类部件按电器安全标准考核；企业可另设 &gt;3 000 h 连续运行内控寿命目标。</td>
                   </tr>
                   <tr>
-                    <td>安全与电磁 <span class="param-tag param-tag-plan">规划</span></td>
-                    <td>GB 4706.1、GB 4706.7 等合规认证</td>
-                    <td>上市前按渠道与国标完成型式试验。</td>
+                    <td>使用环境 <span class="param-tag param-tag-std">国标</span></td>
+                    <td><strong>0–40 ℃</strong>；相对湿度 <strong>≤80%</strong></td>
+                    <td>GB 4706.1 一般使用条件；泵箱须通风散热，避免凝露。</td>
+                  </tr>
+                  <tr>
+                    <td>电气安全 <span class="param-tag param-tag-std">国标</span></td>
+                    <td>符合 <strong>GB 4706.1</strong>（家用和类似用途电器通用安全）及 <strong>GB 4706.7</strong>（真空吸尘器和吸水式清洁器具，气泵参照）全部适用条款</td>
+                    <td>绝缘、接地、泄漏电流、机械危险、异常工况等合格判定。对应测试项「电气安全（通用 / 气泵类）」。</td>
+                  </tr>
+                  <tr>
+                    <td>电磁兼容 <span class="param-tag param-tag-std">国标</span></td>
+                    <td>
+                      发射与抗扰度符合 <strong>GB/T 4343.1</strong>（Class B 限值）<br>
+                      谐波电流符合 <strong>GB/T 17625.1</strong>
+                    </td>
+                    <td>家用卧室场景按 Class B 判定。对应测试项「电磁兼容（EMC）」。</td>
+                  </tr>
+                  <tr>
+                    <td>数据与信息安全 <span class="param-tag param-tag-std">国标</span></td>
+                    <td>符合 <strong>GB/T 46272-2025</strong> 信息安全基本要求</td>
+                    <td>含采集、传输、存储与查询全链路；小程序须可查阅隐私政策。含 Wi-Fi 时另做 SRRC 型号核准。</td>
                   </tr>
                   <tr>
                     <td>质保政策 <span class="param-tag param-tag-plan">规划</span></td>
@@ -968,7 +1082,7 @@
             <h3 class="product-test-category">一、床垫相关国标</h3>
             <p class="product-test-standard">
               主要依据 <strong>GB/T 46272-2025《智能床垫》</strong>、<strong>GB/T 45231-2025《智能床》</strong>（功能维度参照）、
-              <strong>QB/T 1952.1《软体家具 床垫》</strong> 及 <strong>GB 18401</strong> 等，覆盖材料安全、力学耐久与智能功能验证。
+              <strong>QB/T 1952.2《软体家具 弹簧软床垫》</strong>（弹性软床垫参照）、<strong>GB 18401</strong>、<strong>GB 17927.1</strong> 等，覆盖材料安全、力学耐久与智能功能验证。
             </p>
             <div class="product-params-wrap">
               <table class="product-params-table product-test-table">
@@ -983,44 +1097,44 @@
                 <tbody>
                   <tr>
                     <td>有害物质与 VOC</td>
-                    <td>GB 18401 · QB/T 1952.1</td>
-                    <td>甲醛、可分解致癌芳香胺染料；铺垫面 TVOC / 异味等级（按渠道要求选配）</td>
+                    <td>GB 18401 · QB/T 1952.2</td>
+                    <td>甲醛（≤75 mg/kg，B 类）、可分解致癌芳香胺染料；甲醛释放量 ≤0.05 mg/(m²·h)；TVOC / 异味（按标准等级）</td>
                     <td><strong>3 000 – 5 000</strong></td>
                   </tr>
                   <tr>
                     <td>燃烧性能</td>
-                    <td>GB/T 8624 · QB/T 1952.1</td>
-                    <td>床垫铺垫面及填充物阻燃等级；复合层燃烧蔓延速率</td>
+                    <td>GB 17927.1 · GB/T 46272</td>
+                    <td>阴燃香烟试验；铺垫面及填充物阻燃符合智能床垫标准基本要求</td>
                     <td><strong>4 000 – 6 000</strong></td>
                   </tr>
                   <tr>
                     <td>滚压耐久</td>
-                    <td>QB/T 1952.1</td>
-                    <td>滚筒耐久（≥6 万次或 10 万次工况）；高度损失率、边部塌陷</td>
+                    <td>QB/T 1952.2</td>
+                    <td>睡眠区滚筒耐久 ≥60 000 次（优等品）；高度损失率 ≤10%；边部 ≥8 000 次</td>
                     <td><strong>8 000 – 12 000</strong></td>
                   </tr>
                   <tr>
                     <td>铺垫面力学</td>
-                    <td>QB/T 1952.1</td>
-                    <td>硬度分布、回弹率、平整度；分区承压差异与边界过渡</td>
+                    <td>QB/T 1952.2</td>
+                    <td>耐久后垫面高度 ≥90% 初始值；硬度等级变化 ≤1；回弹率 ≥35%（非慢回弹）</td>
                     <td><strong>5 000 – 8 000</strong></td>
                   </tr>
                   <tr>
                     <td>智能感知与调节</td>
                     <td>GB/T 46272-2025</td>
-                    <td>压力感知精度、睡姿/体动识别准确率；分区调压响应时间与稳态误差</td>
+                    <td>自适应 / 个性化调节；运行速度 ≤50 mm/s；压力感知、睡姿识别、调压响应按标准判定</td>
                     <td><strong>15 000 – 25 000</strong></td>
                   </tr>
                   <tr>
                     <td>交互与执行可靠性</td>
                     <td>GB/T 46272-2025</td>
-                    <td>小程序 / 蓝牙连接成功率；模式切换、记忆恢复、止鼾抬升等执行一致性</td>
+                    <td>远程控制、提示、异常报警、语音交互；模式切换与止鼾抬升等执行符合标准</td>
                     <td><strong>8 000 – 12 000</strong></td>
                   </tr>
                   <tr>
                     <td>运行噪声</td>
-                    <td>产品内控 · GB/T 46272 参照</td>
-                    <td>距床垫 50 cm 处 dB(A)；日间 / 夜间分段工况（≤50 / ≤40 dB 目标）</td>
+                    <td>GB/T 46272-2025</td>
+                    <td>工作状态 ≤55 dB(A)；睡眠模式 &lt;30 dB(A)（按标准测点与方法）</td>
                     <td><strong>3 000 – 5 000</strong></td>
                   </tr>
                   <tr>
@@ -1069,14 +1183,14 @@
                   </tr>
                   <tr>
                     <td>待机与能效</td>
-                    <td>GB 4706.1 · 产品内控</td>
-                    <td>待机功耗 ≤1 W 验证；峰值功率与长时间运行温升</td>
+                    <td>GB 4706.1</td>
+                    <td>输入功率、温升、异常工况；长时间运行热稳定性</td>
                     <td><strong>3 000 – 5 000</strong></td>
                   </tr>
                   <tr>
-                    <td>泵组寿命加速</td>
-                    <td>产品内控</td>
-                    <td>无刷气泵连续运行 >3 000 h 加速或等效工况验证</td>
+                    <td>泵组耐久</td>
+                    <td>GB 4706.7</td>
+                    <td>异常运行、耐久试验、过热保护；气泵机械危险</td>
                     <td><strong>5 000 – 8 000</strong></td>
                   </tr>
                   <tr>
@@ -1106,39 +1220,6 @@
             </div>
           </div>
 
-          <div class="product-block">
-            <h2>销售目标</h2>
-            <div class="product-sales-grid">
-              <article class="product-sales-card">
-                <span class="product-sales-num">1</span>
-                <h3>成品销售</h3>
-                <p class="product-sales-flow">成品销售 → 连锁渠道单品上架</p>
-                <p>
-                  以完整薄垫形态进入<strong>宜家、MUJI、小米商城</strong>等连锁零售与电商平台，作为独立 SKU 面向终端消费者销售。
-                </p>
-                <ul class="product-brand-list" aria-label="成品销售渠道示例">
-                  <li>宜家</li>
-                  <li>MUJI</li>
-                  <li>小米商城</li>
-                  <li>等连锁品牌</li>
-                </ul>
-              </article>
-              <article class="product-sales-card">
-                <span class="product-sales-num">2</span>
-                <h3>配件销售</h3>
-                <p class="product-sales-flow">配件销售 → 品牌联合开发赋能</p>
-                <p>
-                  为传统床垫品牌提供智能化升级方案：<strong>我方供应气囊与电控模块</strong>，合作方负责成品整合、品牌包装，并依托其既有渠道推广与销售。
-                </p>
-                <ul class="product-brand-list" aria-label="配件销售目标客户示例">
-                  <li>顾家</li>
-                  <li>梦百合</li>
-                  <li>CBD</li>
-                  <li>等床垫/整体家居品牌</li>
-                </ul>
-              </article>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -1147,7 +1228,7 @@
       <section id="model-section" class="content-card">
         <header class="section-header">
           <h1>3D 模型展示</h1>
-          <p>拖动旋转 · 滚轮缩放 · 右键平移</p>
+          <p>拖动旋转 · 滚轮缩放 · 右键平移 · 按钮 1 → model2 · 按钮 2 → mattress</p>
         </header>
         <div class="viewer-layout">
           <div class="viewer-wrap">
@@ -1155,6 +1236,19 @@
               <div class="viewer-loading" id="viewer-loading">模型加载中…</div>
               <div class="viewer-error hidden" id="viewer-error">模型加载失败，请确认 models 目录中存在 GLB 文件</div>
             </div>
+            <div id="viewer-model-carousel" class="viewer-model-carousel" aria-label="3D 模型切换">
+              <button type="button" class="viewer-model-tab active" data-model-path="models/model2.glb" aria-pressed="true">
+                <span class="viewer-model-tab-num">1</span>
+                <span class="viewer-model-tab-text">基础配件结构</span>
+                <span class="viewer-model-tab-file">model2.glb</span>
+              </button>
+              <button type="button" class="viewer-model-tab" data-model-path="models/mattress.glb" aria-pressed="false">
+                <span class="viewer-model-tab-num">2</span>
+                <span class="viewer-model-tab-text">床垫整体</span>
+                <span class="viewer-model-tab-file">mattress.glb</span>
+              </button>
+            </div>
+            <p class="viewer-model-status" id="viewer-model-status" aria-live="polite">当前：model2.glb</p>
           </div>
           <aside class="viewer-notes" aria-label="3D 模型结构说明">
             <h2 class="viewer-notes-title">结构说明</h2>
@@ -1222,9 +1316,9 @@
               </article>
               <article id="challenge-noise-section" class="selling-point-card selling-point-card--challenge">
                 <span class="selling-point-num">2</span>
-                <h3>噪声控制：8 cm 薄垫内实现 ≤40 dB</h3>
+                <h3>噪声控制：8 cm 薄垫内满足国标 &lt;30 dB</h3>
                 <p>
-                  产品厚度仅 <strong>8–10 cm</strong>，需在有限空间内集成气泵、阀体与电控模块；夜间充放气工况下，运行噪声须满足产品定义 <strong>≤40 dB（A）</strong>（距床垫 50 cm）。薄垫结构<strong>减震、无刷电机选型、分段降速与气路布局</strong>均需同步优化，工程难度高于传统厚床垫或外置泵箱方案。
+                  产品厚度仅 <strong>8–10 cm</strong>，需在有限空间内集成气泵、阀体与电控模块；睡眠模式下运行噪声须满足 GB/T 46272-2025 要求 <strong>&lt;30 dB（A）</strong>。薄垫结构<strong>减震、无刷电机选型、分段降速与气路布局</strong>均需同步优化，工程难度高于传统厚床垫或外置泵箱方案。
                 </p>
               </article>
             </div>
@@ -1285,11 +1379,46 @@
       <section id="sales-forecast-section" class="content-card">
         <header class="section-header">
           <h1>销售预计</h1>
-          <p>开发完成后的首年销售目标 · 成品端 + 配件端</p>
+          <p>双渠道销售目标 · 首年销售预计</p>
         </header>
         <div class="sales-forecast-body">
+          <div class="product-block">
+            <h2>销售目标</h2>
+            <div class="product-sales-grid">
+              <article class="product-sales-card">
+                <span class="product-sales-num">1</span>
+                <h3>成品销售</h3>
+                <p class="product-sales-flow">成品销售 → 连锁渠道单品上架</p>
+                <p>
+                  以完整薄垫形态进入<strong>宜家、MUJI、小米商城</strong>等连锁零售与电商平台，作为独立 SKU 面向终端消费者销售。
+                </p>
+                <ul class="product-brand-list" aria-label="成品销售渠道示例">
+                  <li>宜家</li>
+                  <li>MUJI</li>
+                  <li>小米商城</li>
+                  <li>等连锁品牌</li>
+                </ul>
+              </article>
+              <article class="product-sales-card">
+                <span class="product-sales-num">2</span>
+                <h3>配件销售</h3>
+                <p class="product-sales-flow">配件销售 → 品牌联合开发赋能</p>
+                <p>
+                  为传统床垫品牌提供智能化升级方案：<strong>我方供应气囊与电控模块</strong>，合作方负责成品整合、品牌包装，并依托其既有渠道推广与销售。
+                </p>
+                <ul class="product-brand-list" aria-label="配件销售目标客户示例">
+                  <li>顾家</li>
+                  <li>梦百合</li>
+                  <li>CBD</li>
+                  <li>等床垫/整体家居品牌</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <h2 class="sales-forecast-subtitle">首年销售预计</h2>
           <p class="sales-forecast-intro">
-            以下销售预计<strong>自开发完成并正式发布之日</strong>起算（对应项目计划次年 1 月结项发布节点），覆盖发布后<strong>第一个完整销售年度</strong>。渠道布局与产品定义中的双形态销售目标一致：成品端面向连锁零售与电商单品销售，配件端面向床垫/家居品牌联合开发与渠道复用。
+            以下销售预计<strong>自开发完成并正式发布之日</strong>起算（对应项目计划次年 1 月结项发布节点），覆盖发布后<strong>第一个完整销售年度</strong>。
           </p>
 
           <div class="sales-forecast-grid">
@@ -1395,6 +1524,8 @@
   <script src="js/sample-showcase.js"></script>
   <script src="assets/gantt-plan.js"></script>
   <script src="js/gantt-plan.js"></script>
-  <script src="js/viewer-boot.js"></script>
+  <script src="assets/sku-competition-map.js?v=2"></script>
+  <script src="js/sku-competition-map.js?v=2"></script>
+  <script src="js/viewer-boot.js?v=3"></script>
 </body>
 </html>

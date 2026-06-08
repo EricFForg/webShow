@@ -1,12 +1,56 @@
 (function () {
   const container = document.getElementById("viewer-container");
+  const carouselEl = document.getElementById("viewer-model-carousel");
+  const statusEl = document.getElementById("viewer-model-status");
   const loadingEl = document.getElementById("viewer-loading");
   const errorEl = document.getElementById("viewer-error");
 
+  const MODEL_TABS = [
+    { path: "models/model2.glb", label: "基础配件结构" },
+    { path: "models/mattress.glb", label: "床垫整体" },
+  ];
+
+  if (!container) return;
+
   function showError(msg) {
-    loadingEl.classList.add("hidden");
-    errorEl.textContent = msg;
-    errorEl.classList.remove("hidden");
+    loadingEl?.classList.add("hidden");
+    if (errorEl) {
+      errorEl.textContent = msg;
+      errorEl.classList.remove("hidden");
+    }
+  }
+
+  function hideError() {
+    errorEl?.classList.add("hidden");
+  }
+
+  function setStatus(text) {
+    if (statusEl) statusEl.textContent = text;
+  }
+
+  function setActiveTab(path) {
+    carouselEl?.querySelectorAll(".viewer-model-tab").forEach((btn) => {
+      const active = btn.dataset.modelPath === path;
+      btn.classList.toggle("active", active);
+      btn.setAttribute("aria-pressed", String(active));
+    });
+  }
+
+  function resolveModelUrl(path) {
+    return new URL(path, window.location.href).href;
+  }
+
+  function loadScriptOnce(src) {
+    const key = `__loaded_${src}`;
+    if (window[key]) return window[key];
+    window[key] = new Promise((resolve, reject) => {
+      const el = document.createElement("script");
+      el.src = new URL(src, window.location.href).href;
+      el.onload = () => resolve();
+      el.onerror = () => reject(new Error(`脚本加载失败: ${src}`));
+      document.head.appendChild(el);
+    });
+    return window[key];
   }
 
   function waitImportShim() {
@@ -38,21 +82,21 @@
       ({ GLTFLoader } = await importModule("three/addons/loaders/GLTFLoader.js"));
     } catch (err) {
       console.error(err);
-      showError(
-        "3D 引擎加载失败：" +
-          (err.message || "未知错误") +
-          (location.protocol === "file:"
-            ? "。双击打开需联网加载 Three.js，或使用「打开展示.bat」离线运行。"
-            : "")
-      );
+      showError("3D 引擎加载失败：" + (err.message || "未知错误"));
       return;
     }
 
     let scene, camera, renderer, controls;
+    const modelHolder = new THREE.Group();
+    const sceneCache = new Map();
+    let currentPath = "";
+    let currentObject = null;
+    let loadToken = 0;
 
     function initScene() {
       scene = new THREE.Scene();
       scene.background = new THREE.Color(0xf1f5f9);
+      scene.add(modelHolder);
 
       camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
       camera.position.set(2, 1.5, 3);
@@ -67,11 +111,9 @@
       controls.dampingFactor = 0.08;
 
       scene.add(new THREE.AmbientLight(0xffffff, 0.7));
-
       const key = new THREE.DirectionalLight(0xffffff, 1.2);
       key.position.set(5, 8, 5);
       scene.add(key);
-
       const fill = new THREE.DirectionalLight(0xffffff, 0.4);
       fill.position.set(-4, 2, -3);
       scene.add(fill);
@@ -100,8 +142,9 @@
       renderer.render(scene, camera);
     }
 
-    function fitCamera(model) {
-      const box = new THREE.Box3().setFromObject(model);
+    function fitCamera(target) {
+      const box = new THREE.Box3().setFromObject(target);
+      if (box.isEmpty()) return;
       const center = box.getCenter(new THREE.Vector3());
       const size = box.getSize(new THREE.Vector3());
       const maxDim = Math.max(size.x, size.y, size.z) || 1;
@@ -111,7 +154,7 @@
       controls.update();
     }
 
-    function loadModelFromBase64(base64) {
+    function parseBase64(base64) {
       const binary = atob(base64);
       const buffer = new ArrayBuffer(binary.length);
       const view = new Uint8Array(buffer);
@@ -122,49 +165,96 @@
       });
     }
 
-    async function loadModelFromUrl(path) {
-      const loader = new GLTFLoader();
-      return loader.loadAsync(path);
+    async function getEmbeddedBase64(path) {
+      if (window.MODELS_BASE64?.[path]) return window.MODELS_BASE64[path];
+      if (path === "models/model2.glb" && window.MODEL_BASE64) return window.MODEL_BASE64;
+      if (path === "models/mattress.glb") {
+        if (window.MATTRESS_BASE64) return window.MATTRESS_BASE64;
+        if (!window.MODELS_BASE64?.[path]) {
+          await loadScriptOnce("js/model-data-mattress.js");
+        }
+        return window.MODELS_BASE64?.[path] || window.MATTRESS_BASE64 || null;
+      }
+      return null;
     }
 
-    async function loadModel() {
-      loadingEl.classList.remove("hidden");
-      errorEl.classList.add("hidden");
-
-      const modelPath = window.ASSETS?.models?.[0]?.path;
-      let gltf = null;
+    async function loadGltf(path) {
+      const loader = new GLTFLoader();
+      const url = resolveModelUrl(path);
 
       try {
-        if (location.protocol === "file:" && window.MODEL_BASE64) {
-          gltf = await loadModelFromBase64(window.MODEL_BASE64);
-        } else if (modelPath) {
-          gltf = await loadModelFromUrl(modelPath);
-        }
+        return await loader.loadAsync(url);
+      } catch (urlErr) {
+        console.warn("URL 加载失败，尝试内嵌:", path, urlErr);
+        const embedded = await getEmbeddedBase64(path);
+        if (embedded) return parseBase64(embedded);
+        throw urlErr;
+      }
+    }
+
+    async function getSceneObject(path) {
+      if (sceneCache.has(path)) return sceneCache.get(path);
+      const gltf = await loadGltf(path);
+      const root = gltf.scene;
+      root.updateMatrixWorld(true);
+      sceneCache.set(path, root);
+      return root;
+    }
+
+    function mountSceneObject(obj) {
+      if (currentObject && currentObject.parent === modelHolder) {
+        modelHolder.remove(currentObject);
+      }
+      currentObject = obj;
+      modelHolder.add(obj);
+      fitCamera(modelHolder);
+    }
+
+    async function switchModel(path) {
+      if (path === currentPath && currentObject) return;
+
+      const tab = MODEL_TABS.find((m) => m.path === path);
+      const label = tab?.label || path;
+      const token = ++loadToken;
+
+      setActiveTab(path);
+      loadingEl?.classList.remove("hidden");
+      hideError();
+      if (loadingEl) loadingEl.textContent = `正在加载 ${path}…`;
+      setStatus(`加载中：${path}`);
+
+      try {
+        const sceneObj = await getSceneObject(path);
+        if (token !== loadToken) return;
+
+        mountSceneObject(sceneObj);
+        currentPath = path;
+        loadingEl?.classList.add("hidden");
+        if (loadingEl) loadingEl.textContent = "模型加载中…";
+        setStatus(`当前：${path}（${label}）`);
+        setTimeout(resize, 50);
       } catch (err) {
-        console.warn("URL 加载失败，尝试内嵌模型", err);
+        console.error("模型加载失败:", path, err);
+        if (token !== loadToken) return;
+        setActiveTab(currentPath || MODEL_TABS[0].path);
+        showError(`加载失败：${path}。请用「打开展示.bat」启动本地服务，或确认 models 目录存在该文件。`);
+        setStatus(currentPath ? `当前：${currentPath}` : "加载失败");
       }
-
-      if (!gltf && window.MODEL_BASE64) {
-        try {
-          gltf = await loadModelFromBase64(window.MODEL_BASE64);
-        } catch (err) {
-          console.error(err);
-        }
-      }
-
-      if (!gltf) {
-        showError("模型加载失败，请确认 models 目录中存在 GLB 文件");
-        return;
-      }
-
-      scene.add(gltf.scene);
-      fitCamera(gltf.scene);
-      loadingEl.classList.add("hidden");
-      setTimeout(resize, 50);
     }
 
     initScene();
-    await loadModel();
+
+    carouselEl?.querySelectorAll(".viewer-model-tab").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const path = btn.dataset.modelPath;
+        if (!path) return;
+        switchModel(path);
+      });
+    });
+
+    await switchModel(MODEL_TABS[0].path);
   }
 
   if (document.readyState === "loading") {
