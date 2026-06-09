@@ -1027,13 +1027,18 @@
                   </tr>
                   <tr class="product-param-row-fixed">
                     <td>电源 <span class="param-tag param-tag-fixed">已定</span></td>
-                    <td><strong>24 V / 3 A</strong></td>
+                    <td><strong>12 V / 3–5 A</strong></td>
                     <td>外置适配器供电；需满足气泵峰值负载与电控模块稳定运行。</td>
+                  </tr>
+                  <tr class="product-param-row-fixed">
+                    <td>主控降压 <span class="param-tag param-tag-fixed">已定</span></td>
+                    <td><strong>MP2315</strong>（12 V → 3.3 V，同步 Buck，最高 3 A）</td>
+                    <td>自 12 V 母线取电，为 MCU、压力传感与 BLE / Wi-Fi 模块供电；气泵与电磁阀仍 12 V 直通，不经此芯片。</td>
                   </tr>
                   <tr>
                     <td>输入功率与温升 <span class="param-tag param-tag-std">国标</span></td>
                     <td>标称输入功率下温升、异常工况符合 <strong>GB 4706.1</strong> 规定</td>
-                    <td>24 V 适配器与泵组在额定及峰值充气工况下不得超温。对应测试项「电气安全」「待机与能效」。</td>
+                    <td>12 V 适配器与泵组在额定及峰值充气工况下不得超温。对应测试项「电气安全」「待机与能效」。</td>
                   </tr>
                   <tr>
                     <td>智能调节与运行速度 <span class="param-tag param-tag-std">国标</span></td>
@@ -1050,7 +1055,7 @@
                   </tr>
                   <tr class="product-param-row-fixed">
                     <td>气囊压力范围 <span class="param-tag param-tag-fixed">已定</span></td>
-                    <td><strong>−10 ~ +20 kPa</strong>（相对大气压）</td>
+                    <td><strong>−20 ~ +20 kPa</strong>（相对大气压）</td>
                     <td>各分区独立调节的工作压区间；负向泄压、正向充气均在范围内闭环控制。</td>
                   </tr>
                   <tr>
@@ -1239,7 +1244,7 @@
                   <tr>
                     <td>电气安全（通用）</td>
                     <td>GB 4706.1</td>
-                    <td>绝缘、接地、温升、异常工况、结构间隙；24 V 适配器与泵箱外壳防护</td>
+                    <td>绝缘、接地、温升、异常工况、结构间隙；12 V 适配器与泵箱外壳防护</td>
                     <td><strong>12 000 – 18 000</strong></td>
                   </tr>
                   <tr>
